@@ -141,6 +141,26 @@
   .cat-card .explain li{margin-bottom:6px;}
   .cat-card .explain p{color:#3a382f;font-size:14.5px;}
 
+  /* Predict fields inline in category cards */
+  .predict-zone{
+    border-top:2px solid var(--ink);margin-top:16px;padding-top:16px;
+  }
+  .predict-zone .predict-label{
+    font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--muted);margin-bottom:10px;
+  }
+  .predict-row{display:grid;grid-template-columns:repeat(auto-fit, minmax(150px,1fr));gap:12px;}
+  .predict-group label{
+    display:block;font-size:11px;font-weight:700;text-transform:uppercase;
+    letter-spacing:0.04em;margin-bottom:6px;color:var(--muted);
+  }
+  .predict-group input{
+    width:100%;padding:11px 13px;border-radius:6px;border:2px solid var(--ink);
+    background:var(--bg);color:var(--ink);font-size:14.5px;font-family:inherit;
+  }
+  .predict-group input:focus{outline:none;background:#fff;}
+  .predict-group input::placeholder{color:#a19d8c;}
+
   .article{margin-bottom:26px;}
   .article h4{
     font-size:15px;font-weight:800;margin-bottom:6px;text-transform:uppercase;
@@ -156,37 +176,31 @@
     font-size:15.5px;margin-top:8px;font-weight:600;
   }
 
-  /* Form styles */
-  #participa{background:var(--ink);color:var(--bg);margin:0 -28px;padding:80px 28px;}
-  #participa .wrap{max-width:680px;}
-  #participa h2.section-title{color:#a9a691;}
-  #participa p.section-intro{color:#c9c6b8;}
-  .form-group{margin-bottom:22px;}
-  .form-group label{
-    display:block;font-size:12px;font-weight:800;text-transform:uppercase;
-    letter-spacing:0.05em;margin-bottom:8px;color:#d8d5c8;
+  /* Personal data card */
+  .personal-card{
+    background:var(--ink);color:var(--bg);border-radius:8px;
+    padding:26px 28px;margin-bottom:20px;
   }
-  .form-group input, .form-group select{
-    width:100%;padding:13px 14px;border-radius:6px;border:2px solid #454234;
-    background:#2a2820;color:var(--bg);font-size:15px;font-family:inherit;
+  .personal-card .predict-label{color:#a9a691;}
+  .personal-card .predict-group label{color:#d8d5c8;}
+  .personal-card .predict-group input{
+    background:#2a2820;border:2px solid #454234;color:var(--bg);
   }
-  .form-group input::placeholder{color:#7a7768;}
-  .form-group input:focus, .form-group select:focus{
-    outline:none;border-color:var(--bg);
+  .personal-card .predict-group input::placeholder{color:#7a7768;}
+  .personal-card .predict-group input:focus{border-color:var(--bg);background:#2a2820;}
+
+  .submit-zone{
+    background:var(--ink);color:var(--bg);border-radius:8px;
+    padding:32px 28px;text-align:center;margin-top:20px;
   }
-  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-  .form-row.four{grid-template-columns:1fr 1fr;}
-  .form-section-title{
-    font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;
-    color:#a9a691;margin:34px 0 14px;padding-top:24px;border-top:1px solid #3a3830;
-  }
-  .form-section-title:first-of-type{border-top:none;padding-top:0;margin-top:0;}
+  .submit-zone .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);width:100%;max-width:320px;}
+  .submit-zone p.form-note{font-size:13px;color:#9a9787;margin-top:16px;font-weight:500;}
+
   #form-success{
-    display:none;text-align:center;padding:40px 0;
+    display:none;text-align:center;padding:60px 0;
   }
   #form-success .display{font-size:32px;margin-bottom:14px;}
-  #form-success p{color:#c9c6b8;font-size:15.5px;}
-  .form-note{font-size:13px;color:#9a9787;margin-top:24px;font-weight:500;}
+  #form-success p{color:var(--muted);font-size:15.5px;}
 
   footer{padding:36px 0;text-align:center;color:var(--muted);font-size:12px;
     font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
@@ -196,8 +210,7 @@
     nav.site ul{gap:12px;}
     nav.site button.navlink{font-size:10px;}
     section{padding:56px 0;}
-    #participa{margin:0 -28px;padding:56px 28px;}
-    .form-row, .form-row.four{grid-template-columns:1fr;}
+    .predict-row{grid-template-columns:1fr 1fr;}
   }
 </style>
 </head>
@@ -220,9 +233,8 @@
     <nav class="site">
       <ul>
         <li><button class="navlink" data-target="com-jugar">Com jugar</button></li>
-        <li><button class="navlink" data-target="categories">Categories</button></li>
+        <li><button class="navlink" data-target="categories">Prediccions</button></li>
         <li><button class="navlink" data-target="normativa">Normativa</button></li>
-        <li><button class="navlink" data-target="participa">Participa</button></li>
       </ul>
     </nav>
   </div>
@@ -244,7 +256,7 @@
     <h1 class="display">El Predictor</h1>
     <p class="lede">Un joc anual de prediccions esportives i geopolítiques. Endevina el que passarà aquesta temporada i demostra qui té la millor intuïció... o la millor sort.</p>
     <div class="meta">Data límit de participació: <strong>23 d'agost de 2026, 23:59h</strong></div>
-    <a class="btn" href="#participa" onclick="document.getElementById('participa').scrollIntoView({behavior:'smooth'});return false;">Envia les teves prediccions</a>
+    <a class="btn" href="#categories" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'});return false;">Envia les teves prediccions</a>
   </div>
 </section>
 
@@ -262,176 +274,279 @@
 
 <section id="categories">
   <div class="wrap">
-    <h2 class="section-title">Puntuació i guia</h2>
+    <h2 class="section-title">Puntuació, guia i prediccions</h2>
     <h3 class="section-heading display">Les 10 categories</h3>
-    <p class="section-intro">Cada categoria té la seva pròpia mecànica de puntuació i regles d'aplicació.</p>
+    <p class="section-intro">Llegeix la mecànica de cada categoria i omple directament la teva predicció just a sota. Al final trobaràs el botó per enviar-ho tot.</p>
 
-    <div class="cat-grid">
+    <form id="predictor-form">
 
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">1</span><h4>Top 4 de LaLiga</h4><span class="badge">×3 ordre exacte</span></div>
-          <div class="points-summary">+10 base</div>
-        </div>
-        <div class="breakdown">
-          <div><span>1r classificat exacte</span><span class="pt">+5</span></div>
-          <div><span>2n classificat exacte</span><span class="pt">+5</span></div>
-          <div><span>3r classificat exacte</span><span class="pt">+4</span></div>
-          <div><span>4t classificat exacte</span><span class="pt">+4</span></div>
-        </div>
-        <div class="explain">
-          <ul>
-            <li>El participant haurà de predir els quatre equips que finalitzaran la temporada en les quatre primeres posicions de LaLiga.</li>
-            <li>Per obtenir la puntuació base (+10), serà necessari encertar els quatre equips, amb independència de l'ordre en què hagin estat col·locats.</li>
-            <li>A més de la puntuació base, s'atorgaran els punts corresponents per cada equip que ocupi exactament la posició predita.</li>
-            <li>Si el participant encerta simultàniament els quatre equips i l'ordre exacte de classificació, la puntuació total obtinguda en aquesta categoria es multiplicarà per tres (×3).</li>
-            <li>Aquesta mateixa mecànica és aplicable a totes les categories del Predictor en què s'hagi de predir una classificació ordenada, llevat que el reglament estableixi expressament un criteri diferent.</li>
-          </ul>
+      <div class="personal-card">
+        <div class="predict-label">Les teves dades</div>
+        <div class="predict-row">
+          <div class="predict-group">
+            <label for="nom">Nom i cognom</label>
+            <input type="text" id="nom" name="nom" placeholder="Ex: Guillem Portell" required>
+          </div>
+          <div class="predict-group">
+            <label for="email">Correu electrònic</label>
+            <input type="email" id="email" name="email" placeholder="Ex: guillem.portell@email.com" required>
+          </div>
         </div>
       </div>
 
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">2</span><h4>Guanyador Supercopa d'Espanya</h4></div>
-          <div class="points-summary">+10</div>
+      <div class="cat-grid">
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">1</span><h4>Top 4 de LaLiga</h4><span class="badge">×3 ordre exacte</span></div>
+            <div class="points-summary">+10 base</div>
+          </div>
+          <div class="breakdown">
+            <div><span>1r classificat exacte</span><span class="pt">+5</span></div>
+            <div><span>2n classificat exacte</span><span class="pt">+5</span></div>
+            <div><span>3r classificat exacte</span><span class="pt">+4</span></div>
+            <div><span>4t classificat exacte</span><span class="pt">+4</span></div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>El participant haurà de predir els quatre equips que finalitzaran la temporada en les quatre primeres posicions de LaLiga.</li>
+              <li>Per obtenir la puntuació base (+10), serà necessari encertar els quatre equips, amb independència de l'ordre en què hagin estat col·locats.</li>
+              <li>A més de la puntuació base, s'atorgaran els punts corresponents per cada equip que ocupi exactament la posició predita.</li>
+              <li>Si el participant encerta simultàniament els quatre equips i l'ordre exacte de classificació, la puntuació total obtinguda en aquesta categoria es multiplicarà per tres (×3).</li>
+              <li>Aquesta mateixa mecànica és aplicable a totes les categories del Predictor en què s'hagi de predir una classificació ordenada, llevat que el reglament estableixi expressament un criteri diferent.</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><label>1r</label><input type="text" name="top4_1" required></div>
+              <div class="predict-group"><label>2n</label><input type="text" name="top4_2" required></div>
+              <div class="predict-group"><label>3r</label><input type="text" name="top4_3" required></div>
+              <div class="predict-group"><label>4t</label><input type="text" name="top4_4" required></div>
+            </div>
+          </div>
         </div>
-        <div class="explain">
-          <p>Es considerarà correcta la predicció del club que sigui proclamat oficialment campió de la Supercopa d'Espanya corresponent a l'edició 2027.</p>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">2</span><h4>Guanyador Supercopa d'Espanya</h4></div>
+            <div class="points-summary">+10</div>
+          </div>
+          <div class="explain">
+            <p>Es considerarà correcta la predicció del club que sigui proclamat oficialment campió de la Supercopa d'Espanya corresponent a l'edició 2027.</p>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><input type="text" name="supercopa" required></div>
+            </div>
+          </div>
         </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">3</span><h4>Guanyador Copa del Rei</h4></div>
+            <div class="points-summary">+15</div>
+          </div>
+          <div class="explain">
+            <p>Es considerarà correcta la predicció del club que sigui proclamat oficialment campió de la Copa del Rei corresponent a la temporada 2026-2027.</p>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><input type="text" name="copadelrei" required></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">4</span><h4>Premis individuals</h4></div>
+          </div>
+          <div class="breakdown">
+            <div><span>Ballon d'Or</span><span class="pt">+10</span></div>
+            <div><span>Bota d'Or</span><span class="pt">+5</span></div>
+            <div><span>Golden Boy</span><span class="pt">+5</span></div>
+            <div><span>Trofeu Yashin</span><span class="pt">+10</span></div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>Els resultats es determinaran prenent com a referència els guardons corresponents a l'edició de 2026.</li>
+              <li>El primer premi computable serà la Pilota d'Or, prevista per al 26 d'octubre de 2026, i la resta de premis que integren aquesta categoria.</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><label>Ballon d'Or</label><input type="text" name="ballondor" required></div>
+              <div class="predict-group"><label>Bota d'Or</label><input type="text" name="botador" required></div>
+              <div class="predict-group"><label>Golden Boy</label><input type="text" name="goldenboy" required></div>
+              <div class="predict-group"><label>Trofeu Yashin</label><input type="text" name="yashin" required></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">5</span><h4>Descens de LaLiga</h4><span class="badge">×3 ordre exacte</span></div>
+            <div class="points-summary">+10 base</div>
+          </div>
+          <div class="breakdown">
+            <div><span>18è classificat exacte</span><span class="pt">+5</span></div>
+            <div><span>19è classificat exacte</span><span class="pt">+5</span></div>
+            <div><span>20è classificat exacte</span><span class="pt">+5</span></div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>El participant haurà de predir els tres equips que descendiran a Segona Divisió.</li>
+              <li>Per obtenir la puntuació base (+10), serà necessari encertar els tres equips, sense que l'ordre sigui rellevant.</li>
+              <li>Si a més s'encerta l'ordre exacte en què els equips finalitzen les tres darreres posicions, la puntuació es multiplicarà per tres (×3).</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><label>18è</label><input type="text" name="descens_18" required></div>
+              <div class="predict-group"><label>19è</label><input type="text" name="descens_19" required></div>
+              <div class="predict-group"><label>20è</label><input type="text" name="descens_20" required></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">6</span><h4>Finalistes de la Champions League</h4><span class="badge">Suma ×3 ordre exacte</span></div>
+            <div class="points-summary">+20 base</div>
+          </div>
+          <div class="breakdown">
+            <div><span>Campió exacte</span><span class="pt">+5</span></div>
+            <div><span>Subcampió exacte</span><span class="pt">+5</span></div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>El participant haurà d'encertar els dos finalistes de la final de la Champions League.</li>
+              <li>Si encerta els dos finalistes sense encertar quin és campió i quin subcampió, rebrà +20 punts.</li>
+              <li>Si a més encerta l'ordre exacte (quin dels dos és el campió i quin el subcampió), la puntuació total (base + punts per posició exacta) es multiplicarà per tres (×3). Per exemple: 20 + 5 + 5 = 30, i 30 × 3 = 90 punts.</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><label>Campió</label><input type="text" name="finalista_campio" required></div>
+              <div class="predict-group"><label>Subcampió</label><input type="text" name="finalista_subcampio" required></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">7</span><h4>Esdeveniment inesperat de l'any</h4></div>
+            <div class="points-summary">+20</div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>La predicció haurà de referir-se a un únic esdeveniment.</li>
+              <li>No s'admetran prediccions que facin referència, directa o indirecta, al mateix fet que una altra predicció presentada pel mateix participant.</li>
+              <li>L'esdeveniment haurà de tenir una rellevància social, política, econòmica, esportiva o cultural suficient.</li>
+              <li>La validesa d'una predicció es decidirà per majoria simple entre els participants en cas de controvèrsia.</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><input type="text" name="esdeveniment" placeholder="Descriu l'esdeveniment" required></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">8</span><h4>Guanyadors de les 5 grans lligues</h4><span class="badge">×5 les 5 encertades</span></div>
+          </div>
+          <div class="breakdown">
+            <div><span>La Liga (ESP)</span><span class="pt">+10</span></div>
+            <div><span>Premier League (ANG)</span><span class="pt">+10</span></div>
+            <div><span>Serie A (ITA)</span><span class="pt">+10</span></div>
+            <div><span>Bundesliga (ALE)</span><span class="pt">+10</span></div>
+            <div><span>Ligue 1 (FRA)</span><span class="pt">+10</span></div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>Cal predir els campions de LaLiga, Premier League, Serie A, Bundesliga i Ligue 1.</li>
+              <li>Cada campió encertat puntua d'acord amb la taula establerta.</li>
+              <li>Si s'encerten els cinc campions, la puntuació total es multiplicarà per cinc (×5), com a reconeixement de la dificultat extraordinària d'assolir aquesta predicció.</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><label>La Liga</label><input type="text" name="laliga" required></div>
+              <div class="predict-group"><label>Premier</label><input type="text" name="premier" required></div>
+              <div class="predict-group"><label>Serie A</label><input type="text" name="seriea" required></div>
+              <div class="predict-group"><label>Bundesliga</label><input type="text" name="bundesliga" required></div>
+              <div class="predict-group"><label>Ligue 1</label><input type="text" name="ligue1" required></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">9</span><h4>Eleccions generals espanyoles 2027</h4></div>
+          </div>
+          <div class="breakdown">
+            <div><span>Partit guanyador de les eleccions</span><span class="pt">+10</span></div>
+            <div><span>Govern resultant</span><span class="pt">+20</span></div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>Aquesta categoria es resoldrà únicament quan hagin conclòs les eleccions generals previstes per a l'any 2027.</li>
+              <li>Es distingeixen dues prediccions independents: a) el partit guanyador de les eleccions (més gran nombre d'escons); b) el govern resultant (partit o coalició que aconsegueixi la investidura).</li>
+              <li>Si no s'arriba a constituir cap govern abans de la finalització del Predictor, només es computarà la puntuació del partit guanyador, quedant anul·lada la del govern resultant.</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><label>Partit guanyador</label><input type="text" name="partit_guanyador" required></div>
+              <div class="predict-group"><label>Govern resultant</label><input type="text" name="govern" required></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head">
+            <div><span class="cat-num">10</span><h4>Celebrity Dead</h4></div>
+            <div class="points-summary">+50</div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>No es podrà seleccionar cap persona sobre la qual existeixin proves públiques que pateixi una malaltia greu, terminal o potencialment mortal, ni qui hagi superat una malaltia així durant els dos anys anteriors a l'inici del Predictor.</li>
+              <li>S'entendrà per celebritat qualsevol persona àmpliament coneguda pel ciutadà mitjà de Catalunya i d'Espanya.</li>
+              <li>Quan la condició de celebritat o l'elegibilitat d'una persona sigui objecte de controvèrsia, la seva admissió es decidirà per votació per majoria simple entre els participants.</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><input type="text" name="celebrity" required></div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">3</span><h4>Guanyador Copa del Rei</h4></div>
-          <div class="points-summary">+15</div>
-        </div>
-        <div class="explain">
-          <p>Es considerarà correcta la predicció del club que sigui proclamat oficialment campió de la Copa del Rei corresponent a la temporada 2026-2027.</p>
-        </div>
+      <div class="submit-zone">
+        <button type="submit" class="btn" id="submit-btn">Enviar prediccions</button>
+        <p class="form-note">Recorda: un cop enviat, les teves prediccions són definitives i irrevocables. Data límit: 23 d'agost de 2026, 23:59h. En enviar aquest formulari, acceptes íntegrament el reglament d'El Predictor.</p>
       </div>
 
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">4</span><h4>Premis individuals</h4></div>
-        </div>
-        <div class="breakdown">
-          <div><span>Ballon d'Or</span><span class="pt">+10</span></div>
-          <div><span>Bota d'Or</span><span class="pt">+5</span></div>
-          <div><span>Golden Boy</span><span class="pt">+5</span></div>
-          <div><span>Trofeu Yashin</span><span class="pt">+10</span></div>
-        </div>
-        <div class="explain">
-          <ul>
-            <li>Els resultats es determinaran prenent com a referència els guardons corresponents a l'edició de 2026.</li>
-            <li>El primer premi computable serà la Pilota d'Or, prevista per al 26 d'octubre de 2026, i la resta de premis que integren aquesta categoria.</li>
-          </ul>
-        </div>
-      </div>
+    </form>
 
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">5</span><h4>Descens de LaLiga</h4><span class="badge">×3 ordre exacte</span></div>
-          <div class="points-summary">+10 base</div>
-        </div>
-        <div class="breakdown">
-          <div><span>18è classificat exacte</span><span class="pt">+5</span></div>
-          <div><span>19è classificat exacte</span><span class="pt">+5</span></div>
-          <div><span>20è classificat exacte</span><span class="pt">+5</span></div>
-        </div>
-        <div class="explain">
-          <ul>
-            <li>El participant haurà de predir els tres equips que descendiran a Segona Divisió.</li>
-            <li>Per obtenir la puntuació base (+10), serà necessari encertar els tres equips, sense que l'ordre sigui rellevant.</li>
-            <li>Si a més s'encerta l'ordre exacte en què els equips finalitzen les tres darreres posicions, la puntuació es multiplicarà per tres (×3).</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">6</span><h4>Finalistes de la Champions League</h4><span class="badge">Suma ×3 ordre exacte</span></div>
-          <div class="points-summary">+20 base</div>
-        </div>
-        <div class="breakdown">
-          <div><span>Campió exacte</span><span class="pt">+5</span></div>
-          <div><span>Subcampió exacte</span><span class="pt">+5</span></div>
-        </div>
-        <div class="explain">
-          <ul>
-            <li>El participant haurà d'encertar els dos finalistes de la final de la Champions League.</li>
-            <li>Si encerta els dos finalistes sense encertar quin és campió i quin subcampió, rebrà +20 punts.</li>
-            <li>Si a més encerta l'ordre exacte (quin dels dos és el campió i quin el subcampió), la puntuació total (base + punts per posició exacta) es multiplicarà per tres (×3). Per exemple: 20 + 5 + 5 = 30, i 30 × 3 = 90 punts.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">7</span><h4>Esdeveniment inesperat de l'any</h4></div>
-          <div class="points-summary">+20</div>
-        </div>
-        <div class="explain">
-          <ul>
-            <li>La predicció haurà de referir-se a un únic esdeveniment.</li>
-            <li>No s'admetran prediccions que facin referència, directa o indirecta, al mateix fet que una altra predicció presentada pel mateix participant.</li>
-            <li>L'esdeveniment haurà de tenir una rellevància social, política, econòmica, esportiva o cultural suficient.</li>
-            <li>La validesa d'una predicció es decidirà per majoria simple entre els participants en cas de controvèrsia.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">8</span><h4>Guanyadors de les 5 grans lligues</h4><span class="badge">×5 les 5 encertades</span></div>
-        </div>
-        <div class="breakdown">
-          <div><span>La Liga (ESP)</span><span class="pt">+10</span></div>
-          <div><span>Premier League (ANG)</span><span class="pt">+10</span></div>
-          <div><span>Serie A (ITA)</span><span class="pt">+10</span></div>
-          <div><span>Bundesliga (ALE)</span><span class="pt">+10</span></div>
-          <div><span>Ligue 1 (FRA)</span><span class="pt">+10</span></div>
-        </div>
-        <div class="explain">
-          <ul>
-            <li>Cal predir els campions de LaLiga, Premier League, Serie A, Bundesliga i Ligue 1.</li>
-            <li>Cada campió encertat puntua d'acord amb la taula establerta.</li>
-            <li>Si s'encerten els cinc campions, la puntuació total es multiplicarà per cinc (×5), com a reconeixement de la dificultat extraordinària d'assolir aquesta predicció.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">9</span><h4>Eleccions generals espanyoles 2027</h4></div>
-        </div>
-        <div class="breakdown">
-          <div><span>Partit guanyador de les eleccions</span><span class="pt">+10</span></div>
-          <div><span>Govern resultant</span><span class="pt">+20</span></div>
-        </div>
-        <div class="explain">
-          <ul>
-            <li>Aquesta categoria es resoldrà únicament quan hagin conclòs les eleccions generals previstes per a l'any 2027.</li>
-            <li>Es distingeixen dues prediccions independents: a) el partit guanyador de les eleccions (més gran nombre d'escons); b) el govern resultant (partit o coalició que aconsegueixi la investidura).</li>
-            <li>Si no s'arriba a constituir cap govern abans de la finalització del Predictor, només es computarà la puntuació del partit guanyador, quedant anul·lada la del govern resultant.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cat-card">
-        <div class="cat-head">
-          <div><span class="cat-num">10</span><h4>Celebrity Dead</h4></div>
-          <div class="points-summary">+50</div>
-        </div>
-        <div class="explain">
-          <ul>
-            <li>No es podrà seleccionar cap persona sobre la qual existeixin proves públiques que pateixi una malaltia greu, terminal o potencialment mortal, ni qui hagi superat una malaltia així durant els dos anys anteriors a l'inici del Predictor.</li>
-            <li>S'entendrà per celebritat qualsevol persona àmpliament coneguda pel ciutadà mitjà de Catalunya i d'Espanya.</li>
-            <li>Quan la condició de celebritat o l'elegibilitat d'una persona sigui objecte de controvèrsia, la seva admissió es decidirà per votació per majoria simple entre els participants.</li>
-          </ul>
-        </div>
-      </div>
-
+    <div id="form-success">
+      <div class="display">Predicció rebuda!</div>
+      <p>Les teves prediccions han quedat registrades. Molta sort aquesta temporada.</p>
     </div>
+
   </div>
 </section>
 
@@ -494,90 +609,6 @@
   </div>
 </section>
 
-<section id="participa">
-  <div class="wrap">
-    <h2 class="section-title">Última crida</h2>
-    <h3 class="section-heading display">Envia les teves prediccions</h3>
-    <p class="section-intro">Recorda: un cop enviat, les prediccions són definitives i irrevocables. Tens fins al 23 d'agost de 2026 a les 23:59h.</p>
-
-    <form id="predictor-form">
-
-      <div class="form-section-title">Les teves dades</div>
-      <div class="form-group">
-        <label for="nom">Nom i cognom</label>
-        <input type="text" id="nom" name="nom" placeholder="Ex: Marc Vila" required>
-      </div>
-
-      <div class="form-section-title">1. Top 4 de LaLiga (en ordre)</div>
-      <div class="form-row">
-        <div class="form-group"><label>1r classificat</label><input type="text" name="top4_1" required></div>
-        <div class="form-group"><label>2n classificat</label><input type="text" name="top4_2" required></div>
-        <div class="form-group"><label>3r classificat</label><input type="text" name="top4_3" required></div>
-        <div class="form-group"><label>4t classificat</label><input type="text" name="top4_4" required></div>
-      </div>
-
-      <div class="form-section-title">2. Guanyador Supercopa d'Espanya</div>
-      <div class="form-group"><input type="text" name="supercopa" required></div>
-
-      <div class="form-section-title">3. Guanyador Copa del Rei</div>
-      <div class="form-group"><input type="text" name="copadelrei" required></div>
-
-      <div class="form-section-title">4. Premis individuals</div>
-      <div class="form-row">
-        <div class="form-group"><label>Ballon d'Or</label><input type="text" name="ballondor" required></div>
-        <div class="form-group"><label>Bota d'Or</label><input type="text" name="botador" required></div>
-        <div class="form-group"><label>Golden Boy</label><input type="text" name="goldenboy" required></div>
-        <div class="form-group"><label>Trofeu Yashin</label><input type="text" name="yashin" required></div>
-      </div>
-
-      <div class="form-section-title">5. Descens de LaLiga (en ordre)</div>
-      <div class="form-row">
-        <div class="form-group"><label>18è</label><input type="text" name="descens_18" required></div>
-        <div class="form-group"><label>19è</label><input type="text" name="descens_19" required></div>
-        <div class="form-group"><label>20è</label><input type="text" name="descens_20" required></div>
-      </div>
-
-      <div class="form-section-title">6. Finalistes de la Champions League</div>
-      <div class="form-row">
-        <div class="form-group"><label>Campió</label><input type="text" name="finalista_campio" required></div>
-        <div class="form-group"><label>Subcampió</label><input type="text" name="finalista_subcampio" required></div>
-      </div>
-
-      <div class="form-section-title">7. Esdeveniment inesperat de l'any</div>
-      <div class="form-group"><input type="text" name="esdeveniment" placeholder="Descriu l'esdeveniment" required></div>
-
-      <div class="form-section-title">8. Guanyadors de les 5 grans lligues</div>
-      <div class="form-row">
-        <div class="form-group"><label>La Liga</label><input type="text" name="laliga" required></div>
-        <div class="form-group"><label>Premier League</label><input type="text" name="premier" required></div>
-        <div class="form-group"><label>Serie A</label><input type="text" name="seriea" required></div>
-        <div class="form-group"><label>Bundesliga</label><input type="text" name="bundesliga" required></div>
-      </div>
-      <div class="form-row">
-        <div class="form-group"><label>Ligue 1</label><input type="text" name="ligue1" required></div>
-      </div>
-
-      <div class="form-section-title">9. Eleccions generals espanyoles 2027</div>
-      <div class="form-row">
-        <div class="form-group"><label>Partit guanyador</label><input type="text" name="partit_guanyador" required></div>
-        <div class="form-group"><label>Govern resultant</label><input type="text" name="govern" required></div>
-      </div>
-
-      <div class="form-section-title">10. Celebrity Dead</div>
-      <div class="form-group"><input type="text" name="celebrity" required></div>
-
-      <button type="submit" class="btn" id="submit-btn" style="width:100%;margin-top:20px;">Enviar prediccions</button>
-      <p class="form-note">En enviar aquest formulari, acceptes íntegrament el reglament d'El Predictor.</p>
-    </form>
-
-    <div id="form-success">
-      <div class="display">Predicció rebuda!</div>
-      <p>Les teves prediccions han quedat registrades. Molta sort aquesta temporada.</p>
-    </div>
-
-  </div>
-</section>
-
 <footer>
   <div class="wrap">El Predictor — Temporada 2026-2027</div>
 </footer>
@@ -591,7 +622,7 @@ document.querySelectorAll('.navlink').forEach(function(btn){
 });
 
 // ⚠️ Substitueix aquesta URL per la del teu Google Apps Script un cop desplegat
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby67CnUw08qh9nORb3DgRz-VyFknkiB7CTdEcZwedTtRgh__y8JkMVzoXl5iwPplPds/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwaZNaDfSqPxI81kktZa0zEn0crf-oTWg7ZaLz7k-taal51bynbW0GtEQtn8pG9oPNm/exec";
 
 const form = document.getElementById('predictor-form');
 const submitBtn = document.getElementById('submit-btn');
@@ -610,6 +641,7 @@ form.addEventListener('submit', function(e){
   }).then(function(){
     form.style.display = 'none';
     document.getElementById('form-success').style.display = 'block';
+    document.getElementById('form-success').scrollIntoView({behavior:'smooth'});
   }).catch(function(){
     alert('Hi ha hagut un error enviant les prediccions. Torna-ho a provar.');
     submitBtn.disabled = false;
