@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>El Predictor — Temporada 2026-2027</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23faf8ef'/%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23201e18' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='28' fill='none' stroke='%23201e18' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23201e18'/%3E%3Cline x1='50' y1='2' x2='50' y2='24' stroke='%23201e18' stroke-width='6'/%3E%3Cline x1='50' y1='76' x2='50' y2='98' stroke='%23201e18' stroke-width='6'/%3E%3Cline x1='2' y1='50' x2='24' y2='50' stroke='%23201e18' stroke-width='6'/%3E%3Cline x1='76' y1='50' x2='98' y2='50' stroke='%23201e18' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23faf8ef'/%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23201e18' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='28' fill='none' stroke='%23201e18' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23201e18'/%3E%3Cline x1='50' y1='2' x2='50' y2='24' stroke='%23201e18' stroke-width='6'/%3E%3Cline x1='50' y1='76' x2='50' y2='98' stroke='%23201e18' stroke-width='6'/%3E%3Cline x1='2' y1='50' x2='24' y2='50' stroke='%23201e18' stroke-width='6'/%3E%3Cline x1='78' y1='50' x2='100' y2='50' stroke='%23201e18' stroke-width='6'/%3E%3C/svg%3E">
 <style>
   :root{
     --bg:#faf8ef;
@@ -32,7 +32,6 @@
     letter-spacing:-0.02em;
   }
 
-  /* Logo */
   .logo{display:flex;align-items:center;gap:10px;}
   .logo svg{display:block;}
   .logo-text{
@@ -91,6 +90,7 @@
     border:2px solid var(--ink);cursor:pointer;font-family:inherit;
   }
   .btn:hover{transform:translateY(-2px);}
+  .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
   .btn.outline{background:transparent;color:var(--ink);}
 
   h2.section-title{
@@ -102,7 +102,6 @@
   }
   p.section-intro{color:var(--muted);margin-bottom:36px;font-size:16px;max-width:640px;font-weight:500;}
 
-  /* Categories */
   .cat-grid{display:flex;flex-direction:column;gap:16px;}
   .cat-card{
     background:var(--card);border:2px solid var(--ink);
@@ -157,13 +156,37 @@
     font-size:15.5px;margin-top:8px;font-weight:600;
   }
 
-  .cta-final{text-align:center;background:var(--ink);color:var(--bg);
-    margin:0 -28px;padding:80px 28px;border-radius:0;}
-  .cta-final .wrap{max-width:640px;}
-  .cta-final h2.section-title{color:#c9c6b8;}
-  .cta-final h3{margin-bottom:16px;}
-  .cta-final p{color:#c9c6b8;margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto;font-weight:500;}
-  .cta-final .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);}
+  /* Form styles */
+  #participa{background:var(--ink);color:var(--bg);margin:0 -28px;padding:80px 28px;}
+  #participa .wrap{max-width:680px;}
+  #participa h2.section-title{color:#a9a691;}
+  #participa p.section-intro{color:#c9c6b8;}
+  .form-group{margin-bottom:22px;}
+  .form-group label{
+    display:block;font-size:12px;font-weight:800;text-transform:uppercase;
+    letter-spacing:0.05em;margin-bottom:8px;color:#d8d5c8;
+  }
+  .form-group input, .form-group select{
+    width:100%;padding:13px 14px;border-radius:6px;border:2px solid #454234;
+    background:#2a2820;color:var(--bg);font-size:15px;font-family:inherit;
+  }
+  .form-group input::placeholder{color:#7a7768;}
+  .form-group input:focus, .form-group select:focus{
+    outline:none;border-color:var(--bg);
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .form-row.four{grid-template-columns:1fr 1fr;}
+  .form-section-title{
+    font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;
+    color:#a9a691;margin:34px 0 14px;padding-top:24px;border-top:1px solid #3a3830;
+  }
+  .form-section-title:first-of-type{border-top:none;padding-top:0;margin-top:0;}
+  #form-success{
+    display:none;text-align:center;padding:40px 0;
+  }
+  #form-success .display{font-size:32px;margin-bottom:14px;}
+  #form-success p{color:#c9c6b8;font-size:15.5px;}
+  .form-note{font-size:13px;color:#9a9787;margin-top:24px;font-weight:500;}
 
   footer{padding:36px 0;text-align:center;color:var(--muted);font-size:12px;
     font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
@@ -173,7 +196,8 @@
     nav.site ul{gap:12px;}
     nav.site button.navlink{font-size:10px;}
     section{padding:56px 0;}
-    .cta-final{margin:0 -28px;padding:56px 28px;}
+    #participa{margin:0 -28px;padding:56px 28px;}
+    .form-row, .form-row.four{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -220,7 +244,7 @@
     <h1 class="display">El Predictor</h1>
     <p class="lede">Un joc anual de prediccions esportives i geopolítiques. Endevina el que passarà aquesta temporada i demostra qui té la millor intuïció... o la millor sort.</p>
     <div class="meta">Data límit de participació: <strong>23 d'agost de 2026, 23:59h</strong></div>
-    <a class="btn" href="https://form.typeform.com/to/BURQajAT" target="_blank" rel="noopener">Envia les teves prediccions</a>
+    <a class="btn" href="#participa" onclick="document.getElementById('participa').scrollIntoView({behavior:'smooth'});return false;">Envia les teves prediccions</a>
   </div>
 </section>
 
@@ -470,12 +494,87 @@
   </div>
 </section>
 
-<section id="participa" class="cta-final">
+<section id="participa">
   <div class="wrap">
     <h2 class="section-title">Última crida</h2>
     <h3 class="section-heading display">Envia les teves prediccions</h3>
-    <p>Recorda: un cop enviat el formulari, les prediccions són definitives i irrevocables. Tens fins al 23 d'agost de 2026 a les 23:59h.</p>
-    <a class="btn" href="https://form.typeform.com/to/BURQajAT" target="_blank" rel="noopener">Obrir el formulari</a>
+    <p class="section-intro">Recorda: un cop enviat, les prediccions són definitives i irrevocables. Tens fins al 23 d'agost de 2026 a les 23:59h.</p>
+
+    <form id="predictor-form">
+
+      <div class="form-section-title">Les teves dades</div>
+      <div class="form-group">
+        <label for="nom">Nom i cognom</label>
+        <input type="text" id="nom" name="nom" placeholder="Ex: Marc Vila" required>
+      </div>
+
+      <div class="form-section-title">1. Top 4 de LaLiga (en ordre)</div>
+      <div class="form-row">
+        <div class="form-group"><label>1r classificat</label><input type="text" name="top4_1" required></div>
+        <div class="form-group"><label>2n classificat</label><input type="text" name="top4_2" required></div>
+        <div class="form-group"><label>3r classificat</label><input type="text" name="top4_3" required></div>
+        <div class="form-group"><label>4t classificat</label><input type="text" name="top4_4" required></div>
+      </div>
+
+      <div class="form-section-title">2. Guanyador Supercopa d'Espanya</div>
+      <div class="form-group"><input type="text" name="supercopa" required></div>
+
+      <div class="form-section-title">3. Guanyador Copa del Rei</div>
+      <div class="form-group"><input type="text" name="copadelrei" required></div>
+
+      <div class="form-section-title">4. Premis individuals</div>
+      <div class="form-row">
+        <div class="form-group"><label>Ballon d'Or</label><input type="text" name="ballondor" required></div>
+        <div class="form-group"><label>Bota d'Or</label><input type="text" name="botador" required></div>
+        <div class="form-group"><label>Golden Boy</label><input type="text" name="goldenboy" required></div>
+        <div class="form-group"><label>Trofeu Yashin</label><input type="text" name="yashin" required></div>
+      </div>
+
+      <div class="form-section-title">5. Descens de LaLiga (en ordre)</div>
+      <div class="form-row">
+        <div class="form-group"><label>18è</label><input type="text" name="descens_18" required></div>
+        <div class="form-group"><label>19è</label><input type="text" name="descens_19" required></div>
+        <div class="form-group"><label>20è</label><input type="text" name="descens_20" required></div>
+      </div>
+
+      <div class="form-section-title">6. Finalistes de la Champions League</div>
+      <div class="form-row">
+        <div class="form-group"><label>Campió</label><input type="text" name="finalista_campio" required></div>
+        <div class="form-group"><label>Subcampió</label><input type="text" name="finalista_subcampio" required></div>
+      </div>
+
+      <div class="form-section-title">7. Esdeveniment inesperat de l'any</div>
+      <div class="form-group"><input type="text" name="esdeveniment" placeholder="Descriu l'esdeveniment" required></div>
+
+      <div class="form-section-title">8. Guanyadors de les 5 grans lligues</div>
+      <div class="form-row">
+        <div class="form-group"><label>La Liga</label><input type="text" name="laliga" required></div>
+        <div class="form-group"><label>Premier League</label><input type="text" name="premier" required></div>
+        <div class="form-group"><label>Serie A</label><input type="text" name="seriea" required></div>
+        <div class="form-group"><label>Bundesliga</label><input type="text" name="bundesliga" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Ligue 1</label><input type="text" name="ligue1" required></div>
+      </div>
+
+      <div class="form-section-title">9. Eleccions generals espanyoles 2027</div>
+      <div class="form-row">
+        <div class="form-group"><label>Partit guanyador</label><input type="text" name="partit_guanyador" required></div>
+        <div class="form-group"><label>Govern resultant</label><input type="text" name="govern" required></div>
+      </div>
+
+      <div class="form-section-title">10. Celebrity Dead</div>
+      <div class="form-group"><input type="text" name="celebrity" required></div>
+
+      <button type="submit" class="btn" id="submit-btn" style="width:100%;margin-top:20px;">Enviar prediccions</button>
+      <p class="form-note">En enviar aquest formulari, acceptes íntegrament el reglament d'El Predictor.</p>
+    </form>
+
+    <div id="form-success">
+      <div class="display">Predicció rebuda!</div>
+      <p>Les teves prediccions han quedat registrades. Molta sort aquesta temporada.</p>
+    </div>
+
   </div>
 </section>
 
@@ -488,6 +587,33 @@ document.querySelectorAll('.navlink').forEach(function(btn){
   btn.addEventListener('click', function(){
     var target = document.getElementById(btn.getAttribute('data-target'));
     if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+
+// ⚠️ Substitueix aquesta URL per la del teu Google Apps Script un cop desplegat
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby67CnUw08qh9nORb3DgRz-VyFknkiB7CTdEcZwedTtRgh__y8JkMVzoXl5iwPplPds/exec";
+
+const form = document.getElementById('predictor-form');
+const submitBtn = document.getElementById('submit-btn');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviant...';
+
+  const formData = new FormData(form);
+
+  fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData
+  }).then(function(){
+    form.style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }).catch(function(){
+    alert('Hi ha hagut un error enviant les prediccions. Torna-ho a provar.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Enviar prediccions';
   });
 });
 </script>
