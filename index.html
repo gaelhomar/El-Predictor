@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>El Predictor — Temporada 2026-2027</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23faf8ef'/%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23201e18' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='28' fill='none' stroke='%23201e18' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23201e18'/%3E%3Cline x1='50' y1='2' x2='50' y2='24' stroke='%23201e18' stroke-width='6'/%3E%3Cline x1='50' y1='76' x2='50' y2='98' stroke='%23201e18' stroke-width='6'/%3E%3Cline x1='2' y1='50' x2='24' y2='50' stroke='%23201e18' stroke-width='6'/%3E%3Cline x1='76' y1='50' x2='98' y2='50' stroke='%23201e18' stroke-width='6'/%3E%3C/svg%3E">
 <style>
   :root{
-    --bg:#fafaf8;
-    --ink:#161616;
-    --muted:#6b6b6b;
-    --line:#dedad2;
-    --accent:#1f5c3f;
-    --accent-soft:#e9f0ec;
+    --bg:#faf8ef;
+    --ink:#201e18;
+    --muted:#6f6c60;
+    --line:#e2ded0;
+    --accent:#201e18;
     --card:#ffffff;
-    --maxw:820px;
+    --cream-soft:#f1efe2;
+    --maxw:840px;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -24,125 +25,155 @@
     line-height:1.65;
     font-size:16px;
   }
-  a{color:var(--accent);text-decoration:none;}
+  a{color:var(--ink);text-decoration:none;}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .display{
+    font-weight:900;font-style:italic;text-transform:uppercase;
+    letter-spacing:-0.02em;
+  }
+
+  /* Logo */
+  .logo{display:flex;align-items:center;gap:10px;}
+  .logo svg{display:block;}
+  .logo-text{
+    font-weight:900;font-style:italic;text-transform:uppercase;
+    letter-spacing:-0.01em;font-size:17px;white-space:nowrap;
+  }
 
   header.site{
     position:sticky;top:0;z-index:50;
-    background:rgba(250,250,248,0.92);
+    background:rgba(250,248,239,0.94);
     backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
+    border-bottom:2px solid var(--ink);
   }
   header.site .wrap{
     display:flex;align-items:center;justify-content:space-between;
     padding-top:16px;padding-bottom:16px;
   }
-  .brand{font-weight:700;letter-spacing:0.04em;font-size:15px;text-transform:uppercase;}
   nav.site ul{display:flex;gap:22px;list-style:none;}
   nav.site button.navlink{
-    font-size:13px;letter-spacing:0.03em;text-transform:uppercase;
-    color:var(--ink);opacity:0.75;background:none;border:none;
-    cursor:pointer;font-family:inherit;padding:0;
+    font-size:12px;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--ink);opacity:0.7;background:none;border:none;
+    cursor:pointer;font-family:inherit;padding:0;font-weight:700;
   }
-  nav.site button.navlink:hover{opacity:1;color:var(--accent);}
+  nav.site button.navlink:hover{opacity:1;}
 
-  section{padding:72px 0;border-bottom:1px solid var(--line);}
+  section{padding:80px 0;border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
 
-  .hero{padding-top:96px;padding-bottom:96px;text-align:center;}
-  .hero h1{
-    font-size:52px;font-weight:800;letter-spacing:-0.01em;
-    margin-bottom:14px;
+  .hero{
+    padding-top:80px;padding-bottom:80px;text-align:center;
+    position:relative;overflow:hidden;
   }
+  .hero .crosshair-bg{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:520px;height:520px;opacity:0.05;pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;}
   .hero .tag{
-    display:inline-block;font-size:13px;letter-spacing:0.08em;
-    text-transform:uppercase;color:var(--accent);
-    border:1px solid var(--accent);border-radius:999px;
-    padding:5px 14px;margin-bottom:22px;
+    display:inline-flex;align-items:center;gap:8px;font-size:12px;
+    letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
+    border:2px solid var(--ink);border-radius:999px;
+    padding:6px 16px;margin-bottom:28px;
   }
-  .hero p.lede{font-size:18px;color:var(--muted);max-width:560px;margin:0 auto 30px;}
+  .hero h1.display{font-size:64px;line-height:0.95;margin-bottom:18px;}
+  .hero p.lede{font-size:18px;color:var(--muted);max-width:520px;margin:0 auto 30px;font-weight:500;}
   .hero .meta{
-    font-size:14px;color:var(--muted);margin-bottom:34px;
+    font-size:14px;color:var(--muted);margin-bottom:36px;font-weight:600;
   }
   .hero .meta strong{color:var(--ink);}
 
   .btn{
-    display:inline-block;background:var(--accent);color:#fff;
-    padding:14px 30px;border-radius:6px;font-weight:600;
-    font-size:15px;letter-spacing:0.02em;transition:opacity .15s ease;
-    border:none;cursor:pointer;font-family:inherit;
+    display:inline-block;background:var(--ink);color:var(--bg);
+    padding:16px 34px;border-radius:4px;font-weight:800;
+    font-size:14px;letter-spacing:0.06em;text-transform:uppercase;
+    font-style:italic;transition:transform .15s ease;
+    border:2px solid var(--ink);cursor:pointer;font-family:inherit;
   }
-  .btn:hover{opacity:0.85;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn.outline{background:transparent;color:var(--ink);}
 
   h2.section-title{
-    font-size:13px;letter-spacing:0.12em;text-transform:uppercase;
-    color:var(--accent);margin-bottom:8px;font-weight:700;
+    font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:10px;font-weight:800;
   }
   h3.section-heading{
-    font-size:30px;font-weight:800;margin-bottom:26px;letter-spacing:-0.01em;
+    font-size:34px;margin-bottom:28px;
   }
-  p.section-intro{color:var(--muted);margin-bottom:34px;font-size:16px;max-width:640px;}
+  p.section-intro{color:var(--muted);margin-bottom:36px;font-size:16px;max-width:640px;font-weight:500;}
 
+  /* Categories */
   .cat-grid{display:flex;flex-direction:column;gap:16px;}
   .cat-card{
-    background:var(--card);border:1px solid var(--line);
-    border-radius:10px;padding:24px 26px;
+    background:var(--card);border:2px solid var(--ink);
+    border-radius:8px;padding:24px 26px;position:relative;
   }
   .cat-card .cat-head{
     display:flex;justify-content:space-between;align-items:baseline;
     margin-bottom:10px;gap:12px;flex-wrap:wrap;
   }
   .cat-card .cat-num{
-    font-size:12px;color:var(--muted);letter-spacing:0.06em;
-    text-transform:uppercase;margin-right:8px;
+    display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:50%;
+    background:var(--ink);color:var(--bg);
+    font-size:12px;font-weight:800;margin-right:10px;
+    flex-shrink:0;
   }
-  .cat-card h4{font-size:17px;font-weight:700;display:inline;}
+  .cat-card h4{font-size:18px;font-weight:800;font-style:italic;text-transform:uppercase;display:inline;letter-spacing:-0.01em;}
   .cat-card .points-summary{
-    font-size:13px;color:var(--accent);font-weight:700;white-space:nowrap;
+    font-size:13px;color:var(--ink);font-weight:800;white-space:nowrap;
+    background:var(--cream-soft);padding:4px 10px;border-radius:4px;
   }
   .cat-card .breakdown{
-    font-size:14px;color:var(--muted);border-top:1px solid var(--line);
+    font-size:14px;color:var(--muted);border-top:1px dashed var(--line);
     padding-top:12px;margin-top:8px;
   }
   .cat-card .breakdown div{display:flex;justify-content:space-between;padding:3px 0;}
-  .cat-card .breakdown span.pt{color:var(--accent);font-weight:600;}
+  .cat-card .breakdown span.pt{color:var(--ink);font-weight:800;}
   .badge{
-    display:inline-block;font-size:11px;background:var(--accent-soft);
-    color:var(--accent);padding:2px 8px;border-radius:4px;margin-left:8px;
-    letter-spacing:0.02em;
+    display:inline-block;font-size:10.5px;background:var(--ink);
+    color:var(--bg);padding:3px 9px;border-radius:4px;margin-left:8px;
+    letter-spacing:0.03em;font-weight:700;text-transform:uppercase;
   }
   .cat-card .explain{
-    border-top:1px solid var(--line);margin-top:14px;padding-top:14px;
+    border-top:1px dashed var(--line);margin-top:14px;padding-top:14px;
   }
-  .cat-card .explain ul{padding-left:20px;color:#333;font-size:14.5px;}
+  .cat-card .explain ul{padding-left:20px;color:#3a382f;font-size:14.5px;}
   .cat-card .explain li{margin-bottom:6px;}
-  .cat-card .explain p{color:#333;font-size:14.5px;}
+  .cat-card .explain p{color:#3a382f;font-size:14.5px;}
 
   .article{margin-bottom:26px;}
   .article h4{
-    font-size:16px;font-weight:700;margin-bottom:6px;
+    font-size:15px;font-weight:800;margin-bottom:6px;text-transform:uppercase;
+    letter-spacing:0.02em;
   }
-  .article h4 .art-num{color:var(--accent);}
-  .article p{color:#333;font-size:15.5px;}
-  .intro-block p{margin-bottom:16px;color:#333;font-size:15.5px;}
+  .article h4 .art-num{color:var(--muted);}
+  .article p{color:#3a382f;font-size:15.5px;}
+  .intro-block p{margin-bottom:16px;color:#3a382f;font-size:15.5px;}
 
   .winner-box{
-    background:var(--accent-soft);border:1px solid var(--line);
-    border-radius:8px;padding:20px 22px;color:var(--ink);
-    font-size:15.5px;margin-top:8px;
+    background:var(--ink);border:2px solid var(--ink);
+    border-radius:8px;padding:22px 24px;color:var(--bg);
+    font-size:15.5px;margin-top:8px;font-weight:600;
   }
 
-  .cta-final{text-align:center;}
-  .cta-final h3{margin-bottom:14px;}
-  .cta-final p{color:var(--muted);margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .cta-final{text-align:center;background:var(--ink);color:var(--bg);
+    margin:0 -28px;padding:80px 28px;border-radius:0;}
+  .cta-final .wrap{max-width:640px;}
+  .cta-final h2.section-title{color:#c9c6b8;}
+  .cta-final h3{margin-bottom:16px;}
+  .cta-final p{color:#c9c6b8;margin-bottom:30px;max-width:480px;margin-left:auto;margin-right:auto;font-weight:500;}
+  .cta-final .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);}
 
-  footer{padding:40px 0;text-align:center;color:var(--muted);font-size:13px;}
+  footer{padding:36px 0;text-align:center;color:var(--muted);font-size:12px;
+    font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
 
   @media (max-width:640px){
-    .hero h1{font-size:36px;}
+    .hero h1.display{font-size:42px;}
     nav.site ul{gap:12px;}
-    nav.site button.navlink{font-size:11px;}
-    section{padding:52px 0;}
+    nav.site button.navlink{font-size:10px;}
+    section{padding:56px 0;}
+    .cta-final{margin:0 -28px;padding:56px 28px;}
   }
 </style>
 </head>
@@ -150,7 +181,18 @@
 
 <header class="site">
   <div class="wrap">
-    <div class="brand">El Predictor</div>
+    <div class="logo">
+      <svg width="30" height="30" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="7"/>
+        <circle cx="50" cy="50" r="27" fill="none" stroke="#201e18" stroke-width="7"/>
+        <circle cx="50" cy="50" r="14" fill="#201e18"/>
+        <line x1="50" y1="0" x2="50" y2="22" stroke="#201e18" stroke-width="7"/>
+        <line x1="50" y1="78" x2="50" y2="100" stroke="#201e18" stroke-width="7"/>
+        <line x1="0" y1="50" x2="22" y2="50" stroke="#201e18" stroke-width="7"/>
+        <line x1="78" y1="50" x2="100" y2="50" stroke="#201e18" stroke-width="7"/>
+      </svg>
+      <span class="logo-text">El Predictor</span>
+    </div>
     <nav class="site">
       <ul>
         <li><button class="navlink" data-target="com-jugar">Com jugar</button></li>
@@ -163,9 +205,19 @@
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <span class="tag">Temporada 2026 – 2027</span>
-    <h1>El Predictor</h1>
+  <svg class="crosshair-bg" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="2"/>
+    <circle cx="50" cy="50" r="27" fill="none" stroke="#201e18" stroke-width="2"/>
+    <circle cx="50" cy="50" r="14" fill="none" stroke="#201e18" stroke-width="2"/>
+    <line x1="50" y1="0" x2="50" y2="100" stroke="#201e18" stroke-width="2"/>
+    <line x1="0" y1="50" x2="100" y2="50" stroke="#201e18" stroke-width="2"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="tag">
+      <svg width="14" height="14" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="10"/><circle cx="50" cy="50" r="14" fill="#201e18"/></svg>
+      Temporada 2026 – 2027
+    </span>
+    <h1 class="display">El Predictor</h1>
     <p class="lede">Un joc anual de prediccions esportives i geopolítiques. Endevina el que passarà aquesta temporada i demostra qui té la millor intuïció... o la millor sort.</p>
     <div class="meta">Data límit de participació: <strong>23 d'agost de 2026, 23:59h</strong></div>
     <a class="btn" href="https://form.typeform.com/to/BURQajAT" target="_blank" rel="noopener">Envia les teves prediccions</a>
@@ -175,7 +227,7 @@
 <section id="com-jugar">
   <div class="wrap">
     <h2 class="section-title">Introducció</h2>
-    <h3 class="section-heading">Com funciona el joc</h3>
+    <h3 class="section-heading display">Com funciona el joc</h3>
     <div class="intro-block">
       <p>Vivim en una època en què, sovint, els grans esdeveniments esportius, polítics, socials i culturals es consumeixen des del paper d'espectadors. El Predictor pretén canviar, encara que sigui per una estona, aquest rol passiu, convidant els participants a prendre partit abans que els fets es produeixin.</p>
       <p>Cada participant presenta les seves prediccions abans del <strong>23 d'agost de 2026</strong>, data que marca l'inici oficial del joc, coincidint amb el començament de la temporada 2026-2027 de LaLiga. Durant l'any es publicarà una classificació provisional amb periodicitat aproximadament mensual.</p>
@@ -187,14 +239,14 @@
 <section id="categories">
   <div class="wrap">
     <h2 class="section-title">Puntuació i guia</h2>
-    <h3 class="section-heading">Les 10 categories</h3>
+    <h3 class="section-heading display">Les 10 categories</h3>
     <p class="section-intro">Cada categoria té la seva pròpia mecànica de puntuació i regles d'aplicació.</p>
 
     <div class="cat-grid">
 
       <div class="cat-card">
         <div class="cat-head">
-          <div><span class="cat-num">01</span><h4>Top 4 de LaLiga</h4><span class="badge">×3 si ordre exacte</span></div>
+          <div><span class="cat-num">1</span><h4>Top 4 de LaLiga</h4><span class="badge">×3 ordre exacte</span></div>
           <div class="points-summary">+10 base</div>
         </div>
         <div class="breakdown">
@@ -216,7 +268,7 @@
 
       <div class="cat-card">
         <div class="cat-head">
-          <div><span class="cat-num">02</span><h4>Guanyador Supercopa d'Espanya</h4></div>
+          <div><span class="cat-num">2</span><h4>Guanyador Supercopa d'Espanya</h4></div>
           <div class="points-summary">+10</div>
         </div>
         <div class="explain">
@@ -226,7 +278,7 @@
 
       <div class="cat-card">
         <div class="cat-head">
-          <div><span class="cat-num">03</span><h4>Guanyador Copa del Rei</h4></div>
+          <div><span class="cat-num">3</span><h4>Guanyador Copa del Rei</h4></div>
           <div class="points-summary">+15</div>
         </div>
         <div class="explain">
@@ -236,7 +288,7 @@
 
       <div class="cat-card">
         <div class="cat-head">
-          <div><span class="cat-num">04</span><h4>Premis individuals</h4></div>
+          <div><span class="cat-num">4</span><h4>Premis individuals</h4></div>
         </div>
         <div class="breakdown">
           <div><span>Ballon d'Or</span><span class="pt">+10</span></div>
@@ -254,7 +306,7 @@
 
       <div class="cat-card">
         <div class="cat-head">
-          <div><span class="cat-num">05</span><h4>Descens de LaLiga</h4><span class="badge">×3 si ordre exacte</span></div>
+          <div><span class="cat-num">5</span><h4>Descens de LaLiga</h4><span class="badge">×3 ordre exacte</span></div>
           <div class="points-summary">+10 base</div>
         </div>
         <div class="breakdown">
@@ -273,7 +325,7 @@
 
       <div class="cat-card">
         <div class="cat-head">
-          <div><span class="cat-num">06</span><h4>Finalistes de la Champions League</h4><span class="badge">Suma ×3 si ordre exacte</span></div>
+          <div><span class="cat-num">6</span><h4>Finalistes de la Champions League</h4><span class="badge">Suma ×3 ordre exacte</span></div>
           <div class="points-summary">+20 base</div>
         </div>
         <div class="breakdown">
@@ -291,7 +343,7 @@
 
       <div class="cat-card">
         <div class="cat-head">
-          <div><span class="cat-num">07</span><h4>Esdeveniment inesperat de l'any</h4></div>
+          <div><span class="cat-num">7</span><h4>Esdeveniment inesperat de l'any</h4></div>
           <div class="points-summary">+20</div>
         </div>
         <div class="explain">
@@ -306,7 +358,7 @@
 
       <div class="cat-card">
         <div class="cat-head">
-          <div><span class="cat-num">08</span><h4>Guanyadors de les 5 grans lligues</h4><span class="badge">×5 si les 5 encertades</span></div>
+          <div><span class="cat-num">8</span><h4>Guanyadors de les 5 grans lligues</h4><span class="badge">×5 les 5 encertades</span></div>
         </div>
         <div class="breakdown">
           <div><span>La Liga (ESP)</span><span class="pt">+10</span></div>
@@ -326,7 +378,7 @@
 
       <div class="cat-card">
         <div class="cat-head">
-          <div><span class="cat-num">09</span><h4>Eleccions generals espanyoles 2027</h4></div>
+          <div><span class="cat-num">9</span><h4>Eleccions generals espanyoles 2027</h4></div>
         </div>
         <div class="breakdown">
           <div><span>Partit guanyador de les eleccions</span><span class="pt">+10</span></div>
@@ -362,7 +414,7 @@
 <section id="normativa">
   <div class="wrap">
     <h2 class="section-title">Reglament</h2>
-    <h3 class="section-heading">Normes generals</h3>
+    <h3 class="section-heading display">Normes generals</h3>
 
     <div class="article">
       <h4><span class="art-num">Article 1.</span> Objecte</h4>
@@ -418,10 +470,10 @@
   </div>
 </section>
 
-<section id="participa">
-  <div class="wrap cta-final">
+<section id="participa" class="cta-final">
+  <div class="wrap">
     <h2 class="section-title">Última crida</h2>
-    <h3 class="section-heading">Envia les teves prediccions</h3>
+    <h3 class="section-heading display">Envia les teves prediccions</h3>
     <p>Recorda: un cop enviat el formulari, les prediccions són definitives i irrevocables. Tens fins al 23 d'agost de 2026 a les 23:59h.</p>
     <a class="btn" href="https://form.typeform.com/to/BURQajAT" target="_blank" rel="noopener">Obrir el formulari</a>
   </div>
