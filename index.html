@@ -141,7 +141,6 @@
   .cat-card .explain li{margin-bottom:6px;}
   .cat-card .explain p{color:#3a382f;font-size:14.5px;}
 
-  /* Predict fields inline in category cards */
   .predict-zone{
     border-top:2px solid var(--ink);margin-top:16px;padding-top:16px;
   }
@@ -176,7 +175,6 @@
     font-size:15.5px;margin-top:8px;font-weight:600;
   }
 
-  /* Personal data card */
   .personal-card{
     background:var(--ink);color:var(--bg);border-radius:8px;
     padding:26px 28px;margin-bottom:20px;
@@ -199,8 +197,11 @@
   #form-success{
     display:none;text-align:center;padding:60px 0;
   }
-  #form-success .display{font-size:32px;margin-bottom:14px;}
+  #form-success .display{font-size:32px;margin-bottom:18px;}
   #form-success p{color:var(--muted);font-size:15.5px;}
+  #genie-img{
+    max-width:280px;width:100%;height:auto;margin:0 auto 26px;display:block;
+  }
 
   footer{padding:36px 0;text-align:center;color:var(--muted);font-size:12px;
     font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
@@ -543,6 +544,7 @@
     </form>
 
     <div id="form-success">
+      <img id="genie-img" src="" alt="Genio d'El Predictor">
       <div class="display">Predicció rebuda!</div>
       <p>Les teves prediccions han quedat registrades. Molta sort aquesta temporada.</p>
     </div>
@@ -614,6 +616,17 @@
 </footer>
 
 <script>
+// Array de imatges "genio" per mostrar aleatòriament en enviar el formulari
+const genieImages = [
+  "img/beligol.jpg",
+  "img/dembelator.jpg",
+  "img/doue.jpg",
+  "img/donfree.jpg",
+  "img/dollaruma.jpg",
+  "img/messinator.jpg",
+  "img/guirassy.jpg"
+];
+
 document.querySelectorAll('.navlink').forEach(function(btn){
   btn.addEventListener('click', function(){
     var target = document.getElementById(btn.getAttribute('data-target'));
@@ -622,7 +635,7 @@ document.querySelectorAll('.navlink').forEach(function(btn){
 });
 
 // ⚠️ Substitueix aquesta URL per la del teu Google Apps Script un cop desplegat
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzMYe8mt-sEtH6rA9ccdCP3piglw0y19NDaecLXQTR_9F-PovJhNJKY3zdP3_H2i5V/exec";
+const SCRIPT_URL = "ENGANXA_AQUI_LA_URL_DEL_TEU_APPS_SCRIPT";
 
 const form = document.getElementById('predictor-form');
 const submitBtn = document.getElementById('submit-btn');
@@ -640,6 +653,8 @@ form.addEventListener('submit', function(e){
     body: formData
   }).then(function(){
     form.style.display = 'none';
+    const randomImg = genieImages[Math.floor(Math.random() * genieImages.length)];
+    document.getElementById('genie-img').src = randomImg;
     document.getElementById('form-success').style.display = 'block';
     document.getElementById('form-success').scrollIntoView({behavior:'smooth'});
   }).catch(function(){
