@@ -183,6 +183,7 @@
     border-radius:8px;padding:22px 24px;color:var(--bg);
     font-size:15.5px;margin-top:8px;font-weight:600;
   }
+  .winner-box .btn{margin-top:16px;}
 
   .personal-card{
     background:var(--ink);color:var(--bg);border-radius:8px;
@@ -208,8 +209,20 @@
   }
   #form-success .display{font-size:32px;margin-bottom:18px;}
   #form-success p{color:var(--muted);font-size:15.5px;}
+  .genie-link{
+    display:inline-block;text-decoration:none;cursor:pointer;
+    transition:transform .2s ease;
+  }
+  .genie-link:hover{transform:scale(1.04);}
+  .genie-link:active{transform:scale(0.98);}
   #genie-img{
-    max-width:280px;width:100%;height:auto;margin:0 auto 26px;display:block;
+    max-width:280px;width:100%;height:auto;margin:0 auto 14px;display:block;
+  }
+  .genie-cta{
+    font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--ink);background:var(--cream-soft);display:inline-block;
+    padding:8px 18px;border-radius:999px;margin-bottom:26px;
+    border:2px solid var(--ink);
   }
 
   footer{padding:36px 0;text-align:center;color:var(--muted);font-size:12px;
@@ -605,7 +618,10 @@
     </form>
 
     <div id="form-success">
-      <img id="genie-img" src="" alt="Genio d'El Predictor">
+      <a class="genie-link" href="https://chat.whatsapp.com/KI0CFC6Py2xJNeMjWXcCxT" target="_blank" rel="noopener">
+        <img id="genie-img" src="" alt="Genio d'El Predictor">
+      </a>
+      <div class="genie-cta">Toca el teu geni a veure on et porta</div>
       <div class="display">Predicció rebuda!</div>
       <p>Les teves prediccions han quedat registrades. Molta sort aquesta temporada.</p>
     </div>
@@ -666,7 +682,12 @@
     <div class="article">
       <h4>Què passa si guanyes El Predictor?</h4>
       <div class="winner-box">
-        El premi o reconeixement per al guanyador de l'edició 2026-2027 dependrà d'allò que decideixin els participants.
+        Uneix-te a la nostra comunitat de WhatsApp per estar informat de la classificació mensual i de moltes més sorpreses!
+        <div>
+          <a class="btn" href="https://chat.whatsapp.com/KI0CFC6Py2xJNeMjWXcCxT" target="_blank" rel="noopener" style="background:var(--bg);color:var(--ink);border-color:var(--bg);">
+            Uneix-te a la comunitat
+          </a>
+        </div>
       </div>
     </div>
   </div>
