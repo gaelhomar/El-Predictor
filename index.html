@@ -36,7 +36,14 @@ details.reglament-toggle{border:2px solid var(--ink);border-radius:8px;overflow:
 .personal-card{background:var(--ink);color:var(--bg);border-radius:8px;padding:22px 20px;margin-bottom:16px}.personal-card .predict-label{color:#a9a691}.personal-card .predict-group label{color:#d8d5c8}.personal-card .predict-group input{background:#2a2820;border:2px solid #454234;color:var(--bg)}.personal-card .predict-group input::placeholder{color:#7a7768}.personal-card .predict-group input:focus{border-color:var(--bg);background:#2a2820}.submit-zone{background:var(--ink);color:var(--bg);border-radius:8px;padding:28px 22px;text-align:center;margin-top:16px}.submit-zone .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);width:100%;max-width:320px}.submit-zone p.form-note{font-size:12px;color:#9a9787;margin-top:14px;font-weight:500}
 #form-success{display:none;text-align:center;padding:50px 0}#form-success .display{font-size:28px;margin-bottom:16px}#form-success p{color:var(--muted);font-size:14.5px}.genie-link{display:inline-block;text-decoration:none;cursor:pointer;transition:transform .2s ease}.genie-link:hover{transform:scale(1.04)}#genie-img{max-width:240px;width:100%;height:auto;margin:0 auto 14px;display:block}.genie-cta{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);background:var(--cream-soft);display:inline-block;padding:8px 16px;border-radius:999px;margin-bottom:22px;border:2px solid var(--ink)}
 footer{padding:32px 0;text-align:center;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-@media(max-width:1100px){.site-content-with-gallery{display:block}.photo-wall{display:none}.site-main-content .wrap{max-width:var(--maxw);margin:0 auto;padding-left:28px;padding-right:28px}}
+.mobile-gallery-label{
+  display:none;
+}
+@media(max-width:1100px){   .site-content-with-gallery{     display:flex;     flex-direction:column;     gap:0;   }    .site-main-content{     display:contents;   }      .photo-wall{ display:flex; flex-direction:row; gap:12px; width:100%; overflow-x:auto; overflow-y:hidden; padding:38px 18px 22px; position:relative; scroll-snap-type:x mandatory;  -webkit-overflow-scrolling:touch;  scrollbar-width:thin; scrollbar-color:var(--ink) var(--cream-soft);
+}
+
+.mobile-gallery-label{ display:block; position:absolute; left:18px; top:0; z-index:3; padding:4px 9px; border:1px solid var(--ink); border-radius:999px; background:var(--bg); color:var(--ink); font-size:9px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; white-space:nowrap; pointer-events:none;
+}   
 @media(max-width:640px){.wrap{padding:0 18px}.logo-text{font-size:14px}header.site .wrap{flex-wrap:wrap}nav.site ul{gap:10px}nav.site button.navlink{font-size:9.5px}.hero{padding-top:44px;padding-bottom:44px}.hero h1.display{font-size:36px}.hero .tag{font-size:10px;padding:5px 12px}.hero p.lede{font-size:15px}section{padding:44px 0}h3.section-heading{font-size:23px}.predict-row{grid-template-columns:1fr 1fr}.cat-icon{width:34px;height:34px}.cat-icon svg{width:22px;height:22px}.cat-card{padding:16px}.cat-card h4{font-size:14.5px}.theme-divider .theme-label{font-size:10.5px;padding:6px 12px}details.reglament-toggle summary{font-size:15px;padding:16px 18px}details.reglament-toggle .reglament-body{padding:20px 18px}.pts-row{font-size:12.5px;padding:7px 9px}.btn{padding:14px 24px;font-size:12.5px}.site-main-content .wrap{padding-left:18px;padding-right:18px}}
 @media(max-width:400px){.predict-row{grid-template-columns:1fr}.hero h1.display{font-size:30px}}
 </style>
@@ -47,6 +54,7 @@ footer{padding:32px 0;text-align:center;color:var(--muted);font-size:11px;font-w
 
 <main class="site-content-with-gallery">
 <aside class="photo-wall left">
+<span class="mobile-gallery-label">← Desliza les fotos →</span>
 <div class="wall-photo" style="height:190px"><img src="img/galeria-01.jpg" alt="Neymar Jr." loading="lazy"></div>
 <div class="wall-photo" style="height:240px"><img src="img/galeria-03.jpg" alt="Umtiti" loading="lazy"></div>
 <div class="wall-photo" style="height:210px"><img src="img/galeria-05.jpg" alt="Mario Balotelli" loading="lazy"></div>
@@ -103,6 +111,7 @@ footer{padding:32px 0;text-align:center;color:var(--muted);font-size:11px;font-w
 </div>
 
 <aside class="photo-wall right">
+<span class="mobile-gallery-label">← Desliza les fotos →</span>
 <div class="wall-photo" style="height:190px"><img src="img/galeria-02.jpg" alt="Michael Jackson" loading="lazy"></div>
 <div class="wall-photo" style="height:240px"><img src="img/galeria-04.jpg" alt="França Mundial 2018" loading="lazy"></div>
 <div class="wall-photo" style="height:210px"><img src="img/galeria-06.jpg" alt="Maradona" loading="lazy"></div>
