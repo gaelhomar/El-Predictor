@@ -24,6 +24,7 @@
     color:var(--ink);
     line-height:1.65;
     font-size:16px;
+    overflow-x:hidden;
   }
   a{color:var(--ink);text-decoration:none;}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
@@ -33,7 +34,7 @@
   }
 
   .logo{display:flex;align-items:center;gap:10px;}
-  .logo svg{display:block;}
+  .logo svg{display:block;flex-shrink:0;}
   .logo-text{
     font-weight:900;font-style:italic;text-transform:uppercase;
     letter-spacing:-0.01em;font-size:17px;white-space:nowrap;
@@ -47,21 +48,23 @@
   }
   header.site .wrap{
     display:flex;align-items:center;justify-content:space-between;
-    padding-top:16px;padding-bottom:16px;
+    padding-top:14px;padding-bottom:14px;
+    gap:10px;
   }
-  nav.site ul{display:flex;gap:22px;list-style:none;}
+  nav.site ul{display:flex;gap:18px;list-style:none;flex-wrap:wrap;}
   nav.site button.navlink{
-    font-size:12px;letter-spacing:0.06em;text-transform:uppercase;
+    font-size:11px;letter-spacing:0.05em;text-transform:uppercase;
     color:var(--ink);opacity:0.7;background:none;border:none;
     cursor:pointer;font-family:inherit;padding:0;font-weight:700;
+    white-space:nowrap;
   }
   nav.site button.navlink:hover{opacity:1;}
 
-  section{padding:80px 0;border-bottom:1px solid var(--line);}
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
 
   .hero{
-    padding-top:80px;padding-bottom:80px;text-align:center;
+    padding-top:64px;padding-bottom:64px;text-align:center;
     position:relative;overflow:hidden;
   }
   .hero .crosshair-bg{
@@ -70,22 +73,22 @@
   }
   .hero-inner{position:relative;z-index:1;}
   .hero .tag{
-    display:inline-flex;align-items:center;gap:8px;font-size:12px;
-    letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
+    display:inline-flex;align-items:center;gap:8px;font-size:11px;
+    letter-spacing:0.08em;text-transform:uppercase;font-weight:700;
     border:2px solid var(--ink);border-radius:999px;
-    padding:6px 16px;margin-bottom:28px;
+    padding:6px 14px;margin-bottom:24px;
   }
-  .hero h1.display{font-size:64px;line-height:0.95;margin-bottom:18px;}
-  .hero p.lede{font-size:18px;color:var(--muted);max-width:520px;margin:0 auto 30px;font-weight:500;}
+  .hero h1.display{font-size:56px;line-height:0.95;margin-bottom:16px;word-break:break-word;}
+  .hero p.lede{font-size:17px;color:var(--muted);max-width:520px;margin:0 auto 26px;font-weight:500;}
   .hero .meta{
-    font-size:14px;color:var(--muted);margin-bottom:36px;font-weight:600;
+    font-size:13.5px;color:var(--muted);margin-bottom:30px;font-weight:600;
   }
   .hero .meta strong{color:var(--ink);}
 
   .btn{
     display:inline-block;background:var(--ink);color:var(--bg);
-    padding:16px 34px;border-radius:4px;font-weight:800;
-    font-size:14px;letter-spacing:0.06em;text-transform:uppercase;
+    padding:15px 30px;border-radius:4px;font-weight:800;
+    font-size:13.5px;letter-spacing:0.05em;text-transform:uppercase;
     font-style:italic;transition:transform .15s ease;
     border:2px solid var(--ink);cursor:pointer;font-family:inherit;
   }
@@ -94,100 +97,149 @@
   .btn.outline{background:transparent;color:var(--ink);}
 
   h2.section-title{
-    font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
-    color:var(--muted);margin-bottom:10px;font-weight:800;
+    font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:8px;font-weight:800;
   }
   h3.section-heading{
-    font-size:34px;margin-bottom:28px;
+    font-size:28px;margin-bottom:24px;
   }
-  p.section-intro{color:var(--muted);margin-bottom:36px;font-size:16px;max-width:640px;font-weight:500;}
+  p.section-intro{color:var(--muted);margin-bottom:30px;font-size:15px;max-width:640px;font-weight:500;}
 
-  .cat-grid{display:flex;flex-direction:column;gap:16px;}
+  .theme-divider{
+    display:flex;align-items:center;gap:14px;
+    margin:40px 0 20px;
+  }
+  .theme-divider:first-of-type{margin-top:0;}
+  .theme-divider .theme-line{flex:1;height:2px;background:var(--ink);}
+  .theme-divider .theme-label{
+    font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;
+    background:var(--ink);color:var(--bg);padding:7px 16px;border-radius:999px;
+    white-space:nowrap;
+  }
+
+  .cat-grid{display:flex;flex-direction:column;gap:14px;}
   .cat-card{
     background:var(--card);border:2px solid var(--ink);
-    border-radius:8px;padding:24px 26px;position:relative;
+    border-radius:8px;padding:20px;position:relative;
   }
-  .cat-head-row{display:flex;align-items:flex-start;gap:14px;}
+  .cat-head-row{display:flex;align-items:flex-start;gap:12px;}
   .cat-icon{
-    flex-shrink:0;width:44px;height:44px;border-radius:50%;
+    flex-shrink:0;width:40px;height:40px;border-radius:50%;
     background:var(--cream-soft);display:flex;align-items:center;justify-content:center;
     margin-top:2px;
   }
+  .cat-icon svg{width:28px;height:28px;}
   .cat-head-content{flex:1;min-width:0;}
   .cat-card .cat-head{
-    display:flex;justify-content:space-between;align-items:baseline;
-    margin-bottom:10px;gap:12px;flex-wrap:wrap;
+    display:flex;justify-content:space-between;align-items:flex-start;
+    margin-bottom:8px;gap:8px;flex-wrap:wrap;
   }
+  .cat-title-line{display:flex;align-items:center;flex-wrap:wrap;gap:6px;min-width:0;}
   .cat-card .cat-num{
     display:inline-flex;align-items:center;justify-content:center;
-    width:22px;height:22px;border-radius:50%;
+    width:20px;height:20px;border-radius:50%;
     background:var(--ink);color:var(--bg);
-    font-size:11px;font-weight:800;margin-right:8px;
-    flex-shrink:0;
+    font-size:10.5px;font-weight:800;flex-shrink:0;
   }
-  .cat-card h4{font-size:18px;font-weight:800;font-style:italic;text-transform:uppercase;display:inline;letter-spacing:-0.01em;}
+  .cat-card h4{font-size:16px;font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.25;}
   .cat-card .points-summary{
-    font-size:13px;color:var(--ink);font-weight:800;white-space:nowrap;
-    background:var(--cream-soft);padding:4px 10px;border-radius:4px;
+    font-size:12px;color:var(--ink);font-weight:800;white-space:nowrap;
+    background:var(--cream-soft);padding:4px 9px;border-radius:4px;flex-shrink:0;
   }
-  .cat-card .breakdown{
-    font-size:15.5px;color:var(--muted);border-top:1px dashed var(--line);
-    padding-top:12px;margin-top:8px;
+
+  .pts-visual{border-top:1px dashed var(--line);padding-top:12px;margin-top:8px;display:flex;flex-direction:column;gap:6px;}
+  .pts-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;font-size:13.5px;}
+  .pts-row .pts-icon{
+    flex-shrink:0;width:24px;height:24px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:800;
   }
-  .cat-card .breakdown div{display:flex;align-items:center;justify-content:space-between;padding:6px 0;}
-  .cat-card .breakdown div span:first-child{display:flex;align-items:center;gap:8px;}
-  .cat-card .breakdown span.pt{color:var(--ink);font-weight:800;}
-  .cat-card .breakdown .emoji{font-size:22px;line-height:1;}
+  .pts-row .pts-text{flex:1;color:#3a382f;min-width:0;}
+  .pts-row .pts-value{font-weight:800;color:var(--ink);flex-shrink:0;font-size:13px;}
+  .pts-base{background:var(--cream-soft);}
+  .pts-base .pts-icon{background:var(--ink);color:var(--bg);}
+  .pts-exact{background:#fff;border:1px dashed var(--line);}
+  .pts-exact .pts-icon{background:transparent;border:1.5px solid var(--ink);color:var(--ink);}
+  .pts-multiplier{background:var(--ink);}
+  .pts-multiplier .pts-icon{background:var(--bg);color:var(--ink);font-size:11px;}
+  .pts-multiplier .pts-text{color:var(--bg);font-weight:700;}
+  .pts-multiplier .pts-value{color:var(--bg);}
+  .pts-flat{background:var(--cream-soft);}
+  .pts-flat .pts-icon{background:var(--ink);color:var(--bg);}
+
   .badge{
-    display:inline-block;font-size:10.5px;background:var(--ink);
-    color:var(--bg);padding:3px 9px;border-radius:4px;margin-left:8px;
-    letter-spacing:0.03em;font-weight:700;text-transform:uppercase;
+    display:inline-block;font-size:9.5px;background:var(--ink);
+    color:var(--bg);padding:3px 8px;border-radius:4px;
+    letter-spacing:0.02em;font-weight:700;text-transform:uppercase;
   }
   .cat-card .explain{
-    border-top:1px dashed var(--line);margin-top:14px;padding-top:14px;
+    border-top:1px dashed var(--line);margin-top:12px;padding-top:12px;
   }
-  .cat-card .explain ul{padding-left:20px;color:#3a382f;font-size:14.5px;}
-  .cat-card .explain li{margin-bottom:6px;}
-  .cat-card .explain p{color:#3a382f;font-size:14.5px;}
+  .cat-card .explain ul{padding-left:18px;color:#3a382f;font-size:13.5px;}
+  .cat-card .explain li{margin-bottom:5px;}
+  .cat-card .explain p{color:#3a382f;font-size:13.5px;}
 
   .predict-zone{
-    border-top:2px solid var(--ink);margin-top:16px;padding-top:16px;
+    border-top:2px solid var(--ink);margin-top:14px;padding-top:14px;
   }
   .predict-zone .predict-label{
-    font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;
-    color:var(--muted);margin-bottom:10px;
+    font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;
+    color:var(--muted);margin-bottom:9px;
   }
-  .predict-row{display:grid;grid-template-columns:repeat(auto-fit, minmax(150px,1fr));gap:12px;}
+  .predict-row{display:grid;grid-template-columns:repeat(auto-fit, minmax(130px,1fr));gap:10px;}
   .predict-group label{
-    display:block;font-size:11px;font-weight:700;text-transform:uppercase;
-    letter-spacing:0.04em;margin-bottom:6px;color:var(--muted);
+    display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;
+    letter-spacing:0.03em;margin-bottom:5px;color:var(--muted);
   }
   .predict-group input{
-    width:100%;padding:11px 13px;border-radius:6px;border:2px solid var(--ink);
-    background:var(--bg);color:var(--ink);font-size:14.5px;font-family:inherit;
+    width:100%;padding:11px 12px;border-radius:6px;border:2px solid var(--ink);
+    background:var(--bg);color:var(--ink);font-size:14px;font-family:inherit;
   }
   .predict-group input:focus{outline:none;background:#fff;}
   .predict-group input::placeholder{color:#a19d8c;}
 
-  .article{margin-bottom:26px;}
+  details.reglament-toggle{
+    border:2px solid var(--ink);border-radius:8px;overflow:hidden;
+    margin-bottom:20px;
+  }
+  details.reglament-toggle summary{
+    padding:18px 22px;cursor:pointer;font-weight:800;font-style:italic;
+    text-transform:uppercase;letter-spacing:-0.01em;font-size:17px;
+    list-style:none;display:flex;align-items:center;justify-content:space-between;
+    background:var(--cream-soft);
+  }
+  details.reglament-toggle summary::-webkit-details-marker{display:none;}
+  details.reglament-toggle summary .chevron{
+    font-size:14px;transition:transform .2s ease;font-style:normal;
+  }
+  details.reglament-toggle[open] summary .chevron{transform:rotate(180deg);}
+  details.reglament-toggle .reglament-body{padding:24px 22px;}
+
+  .article{margin-bottom:22px;}
+  .article:last-child{margin-bottom:0;}
   .article h4{
-    font-size:15px;font-weight:800;margin-bottom:6px;text-transform:uppercase;
+    font-size:13.5px;font-weight:800;margin-bottom:6px;text-transform:uppercase;
     letter-spacing:0.02em;
   }
   .article h4 .art-num{color:var(--muted);}
-  .article p{color:#3a382f;font-size:15.5px;}
-  .intro-block p{margin-bottom:16px;color:#3a382f;font-size:15.5px;}
+  .article p{color:#3a382f;font-size:14.5px;}
+  .intro-block p{margin-bottom:14px;color:#3a382f;font-size:14.5px;}
 
   .winner-box{
     background:var(--ink);border:2px solid var(--ink);
-    border-radius:8px;padding:22px 24px;color:var(--bg);
-    font-size:15.5px;margin-top:8px;font-weight:600;
+    border-radius:8px;padding:24px 22px;color:var(--bg);
+    font-size:15px;font-weight:700;text-align:center;
   }
-  .winner-box .btn{margin-top:16px;}
+  .winner-box .winner-title{
+    font-size:17px;font-weight:800;font-style:italic;text-transform:uppercase;
+    letter-spacing:-0.01em;margin-bottom:10px;
+  }
+  .winner-box p{color:#d8d5c8;font-weight:600;margin-bottom:16px;font-size:14.5px;}
+  .winner-box .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);}
 
   .personal-card{
     background:var(--ink);color:var(--bg);border-radius:8px;
-    padding:26px 28px;margin-bottom:20px;
+    padding:22px 20px;margin-bottom:16px;
   }
   .personal-card .predict-label{color:#a9a691;}
   .personal-card .predict-group label{color:#d8d5c8;}
@@ -199,16 +251,16 @@
 
   .submit-zone{
     background:var(--ink);color:var(--bg);border-radius:8px;
-    padding:32px 28px;text-align:center;margin-top:20px;
+    padding:28px 22px;text-align:center;margin-top:16px;
   }
   .submit-zone .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);width:100%;max-width:320px;}
-  .submit-zone p.form-note{font-size:13px;color:#9a9787;margin-top:16px;font-weight:500;}
+  .submit-zone p.form-note{font-size:12px;color:#9a9787;margin-top:14px;font-weight:500;}
 
   #form-success{
-    display:none;text-align:center;padding:60px 0;
+    display:none;text-align:center;padding:50px 0;
   }
-  #form-success .display{font-size:32px;margin-bottom:18px;}
-  #form-success p{color:var(--muted);font-size:15.5px;}
+  #form-success .display{font-size:28px;margin-bottom:16px;}
+  #form-success p{color:var(--muted);font-size:14.5px;}
   .genie-link{
     display:inline-block;text-decoration:none;cursor:pointer;
     transition:transform .2s ease;
@@ -216,26 +268,44 @@
   .genie-link:hover{transform:scale(1.04);}
   .genie-link:active{transform:scale(0.98);}
   #genie-img{
-    max-width:280px;width:100%;height:auto;margin:0 auto 14px;display:block;
+    max-width:240px;width:100%;height:auto;margin:0 auto 14px;display:block;
   }
   .genie-cta{
-    font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;
+    font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;
     color:var(--ink);background:var(--cream-soft);display:inline-block;
-    padding:8px 18px;border-radius:999px;margin-bottom:26px;
+    padding:8px 16px;border-radius:999px;margin-bottom:22px;
     border:2px solid var(--ink);
   }
 
-  footer{padding:36px 0;text-align:center;color:var(--muted);font-size:12px;
-    font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
+  footer{padding:32px 0;text-align:center;color:var(--muted);font-size:11px;
+    font-weight:700;letter-spacing:0.05em;text-transform:uppercase;}
 
   @media (max-width:640px){
-    .hero h1.display{font-size:42px;}
-    nav.site ul{gap:12px;}
-    nav.site button.navlink{font-size:10px;}
-    section{padding:56px 0;}
+    .wrap{padding:0 18px;}
+    .logo-text{font-size:14px;}
+    header.site .wrap{flex-wrap:wrap;}
+    nav.site ul{gap:10px;}
+    nav.site button.navlink{font-size:9.5px;}
+    .hero{padding-top:44px;padding-bottom:44px;}
+    .hero h1.display{font-size:36px;}
+    .hero .tag{font-size:10px;padding:5px 12px;}
+    .hero p.lede{font-size:15px;}
+    section{padding:44px 0;}
+    h3.section-heading{font-size:23px;}
     .predict-row{grid-template-columns:1fr 1fr;}
-    .cat-icon{width:38px;height:38px;}
-    .cat-icon svg{width:26px;height:26px;}
+    .cat-icon{width:34px;height:34px;}
+    .cat-icon svg{width:22px;height:22px;}
+    .cat-card{padding:16px;}
+    .cat-card h4{font-size:14.5px;}
+    .theme-divider .theme-label{font-size:10.5px;padding:6px 12px;}
+    details.reglament-toggle summary{font-size:15px;padding:16px 18px;}
+    details.reglament-toggle .reglament-body{padding:20px 18px;}
+    .pts-row{font-size:12.5px;padding:7px 9px;}
+    .btn{padding:14px 24px;font-size:12.5px;}
+  }
+  @media (max-width:400px){
+    .predict-row{grid-template-columns:1fr;}
+    .hero h1.display{font-size:30px;}
   }
 </style>
 </head>
@@ -244,7 +314,7 @@
 <header class="site">
   <div class="wrap">
     <div class="logo">
-      <svg width="30" height="30" viewBox="0 0 100 100">
+      <svg width="28" height="28" viewBox="0 0 100 100">
         <circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="7"/>
         <circle cx="50" cy="50" r="27" fill="none" stroke="#201e18" stroke-width="7"/>
         <circle cx="50" cy="50" r="14" fill="#201e18"/>
@@ -275,7 +345,7 @@
   </svg>
   <div class="wrap hero-inner">
     <span class="tag">
-      <svg width="14" height="14" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="10"/><circle cx="50" cy="50" r="14" fill="#201e18"/></svg>
+      <svg width="13" height="13" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="10"/><circle cx="50" cy="50" r="14" fill="#201e18"/></svg>
       Temporada 2026 – 2027
     </span>
     <h1 class="display">El Predictor</h1>
@@ -300,7 +370,7 @@
 <section id="categories">
   <div class="wrap">
     <h2 class="section-title">Puntuació, guia i prediccions</h2>
-    <h3 class="section-heading display">Les 10 categories</h3>
+    <h3 class="section-heading display">Les 11 categories</h3>
     <p class="section-intro">Llegeix la mecànica de cada categoria i omple directament la teva predicció just a sota. Al final trobaràs el botó per enviar-ho tot.</p>
 
     <form id="predictor-form">
@@ -319,31 +389,33 @@
         </div>
       </div>
 
+      <div class="theme-divider">
+        <span class="theme-line"></span>
+        <span class="theme-label">⚽ Prediccions Futbolístiques</span>
+        <span class="theme-line"></span>
+      </div>
+
       <div class="cat-grid">
 
         <div class="cat-card">
           <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M14 6h20v6c0 7-4.5 12-10 12s-10-5-10-12V6z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M14 8H8v2c0 5 3 8 6 8" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M34 8h6v2c0 5-3 8-6 8" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M24 24v8" stroke="#201e18" stroke-width="2.2"/><path d="M17 40h14" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M20 32h8l1.5 8h-11z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/></svg></div>
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><path d="M14 6h20v6c0 7-4.5 12-10 12s-10-5-10-12V6z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M14 8H8v2c0 5 3 8 6 8" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M34 8h6v2c0 5-3 8-6 8" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M24 24v8" stroke="#201e18" stroke-width="2.2"/><path d="M17 40h14" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M20 32h8l1.5 8h-11z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/></svg></div>
             <div class="cat-head-content">
               <div class="cat-head">
-                <div><span class="cat-num">1</span><h4>Top 4 de LaLiga</h4><span class="badge">×3 ordre exacte</span></div>
-                <div class="points-summary">+10 base</div>
+                <div class="cat-title-line"><span class="cat-num">1</span><h4>Top 4 de LaLiga</h4></div>
+                <div class="points-summary">fins a +42</div>
               </div>
             </div>
           </div>
-          <div class="breakdown">
-            <div><span>1r classificat exacte</span><span class="pt">+5</span></div>
-            <div><span>2n classificat exacte</span><span class="pt">+5</span></div>
-            <div><span>3r classificat exacte</span><span class="pt">+4</span></div>
-            <div><span>4t classificat exacte</span><span class="pt">+4</span></div>
+          <div class="pts-visual">
+            <div class="pts-row pts-base"><span class="pts-icon">✓</span><span class="pts-text">Encertar els 4 equips (sense ordre)</span><span class="pts-value">+10</span></div>
+            <div class="pts-row pts-exact"><span class="pts-icon">🎯</span><span class="pts-text">Cada equip en la posició exacta</span><span class="pts-value">+5/+5/+4/+4</span></div>
+            <div class="pts-row pts-multiplier"><span class="pts-icon">×3</span><span class="pts-text">Si encertes els 4 en l'ordre exacte, tot es multiplica</span><span class="pts-value">×3</span></div>
           </div>
           <div class="explain">
             <ul>
-              <li>El participant haurà de predir els quatre equips que finalitzaran la temporada en les quatre primeres posicions de LaLiga.</li>
-              <li>Per obtenir la puntuació base (+10), serà necessari encertar els quatre equips, amb independència de l'ordre en què hagin estat col·locats.</li>
-              <li>A més de la puntuació base, s'atorgaran els punts corresponents per cada equip que ocupi exactament la posició predita.</li>
-              <li>Si el participant encerta simultàniament els quatre equips i l'ordre exacte de classificació, la puntuació total obtinguda en aquesta categoria es multiplicarà per tres (×3).</li>
-              <li>Aquesta mateixa mecànica és aplicable a totes les categories del Predictor en què s'hagi de predir una classificació ordenada, llevat que el reglament estableixi expressament un criteri diferent.</li>
+              <li>Has de predir els quatre equips que finalitzaran la temporada en les quatre primeres posicions de LaLiga.</li>
+              <li>Si encertes els 4 equips i l'ordre exacte, la puntuació total d'aquesta categoria es multiplica per 3.</li>
             </ul>
           </div>
           <div class="predict-zone">
@@ -359,16 +431,16 @@
 
         <div class="cat-card">
           <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M12 6h24v4c0 8-5 15-12 15S12 18 12 10V6z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M24 25v7" stroke="#201e18" stroke-width="2.2"/><path d="M16 40h16" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M19 32h10l1 8H18z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M24 6v6" stroke="#201e18" stroke-width="2"/></svg></div>
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><path d="M12 6h24v4c0 8-5 15-12 15S12 18 12 10V6z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M24 25v7" stroke="#201e18" stroke-width="2.2"/><path d="M16 40h16" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M19 32h10l1 8H18z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M24 6v6" stroke="#201e18" stroke-width="2"/></svg></div>
             <div class="cat-head-content">
               <div class="cat-head">
-                <div><span class="cat-num">2</span><h4>Guanyador Supercopa d'Espanya</h4></div>
+                <div class="cat-title-line"><span class="cat-num">2</span><h4>Guanyador Supercopa d'Espanya</h4></div>
                 <div class="points-summary">+10</div>
               </div>
             </div>
           </div>
-          <div class="explain">
-            <p>Es considerarà correcta la predicció del club que sigui proclamat oficialment campió de la Supercopa d'Espanya corresponent a l'edició 2027.</p>
+          <div class="pts-visual">
+            <div class="pts-row pts-flat"><span class="pts-icon">✓</span><span class="pts-text">Encertar el campió de la Supercopa 2027</span><span class="pts-value">+10</span></div>
           </div>
           <div class="predict-zone">
             <div class="predict-label">La teva predicció</div>
@@ -380,16 +452,16 @@
 
         <div class="cat-card">
           <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="16" y="6" width="16" height="18" rx="2" fill="none" stroke="#201e18" stroke-width="2.2"/><path d="M16 10h-5v3c0 4 2 7 5 8" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M32 10h5v3c0 4-2 7-5 8" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M24 24v8" stroke="#201e18" stroke-width="2.2"/><path d="M17 40h14" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M20 32h8l1.5 8h-11z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 12h8M20 16h8" stroke="#201e18" stroke-width="1.6"/></svg></div>
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><rect x="16" y="6" width="16" height="18" rx="2" fill="none" stroke="#201e18" stroke-width="2.2"/><path d="M16 10h-5v3c0 4 2 7 5 8" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M32 10h5v3c0 4-2 7-5 8" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M24 24v8" stroke="#201e18" stroke-width="2.2"/><path d="M17 40h14" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M20 32h8l1.5 8h-11z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M20 12h8M20 16h8" stroke="#201e18" stroke-width="1.6"/></svg></div>
             <div class="cat-head-content">
               <div class="cat-head">
-                <div><span class="cat-num">3</span><h4>Guanyador Copa del Rei</h4></div>
+                <div class="cat-title-line"><span class="cat-num">3</span><h4>Guanyador Copa del Rei</h4></div>
                 <div class="points-summary">+15</div>
               </div>
             </div>
           </div>
-          <div class="explain">
-            <p>Es considerarà correcta la predicció del club que sigui proclamat oficialment campió de la Copa del Rei corresponent a la temporada 2026-2027.</p>
+          <div class="pts-visual">
+            <div class="pts-row pts-flat"><span class="pts-icon">✓</span><span class="pts-text">Encertar el campió de la Copa del Rei</span><span class="pts-value">+15</span></div>
           </div>
           <div class="predict-zone">
             <div class="predict-label">La teva predicció</div>
@@ -401,23 +473,23 @@
 
         <div class="cat-card">
           <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><circle cx="24" cy="18" r="12" fill="none" stroke="#201e18" stroke-width="2.2"/><path d="M24 6v24M12 18h24" stroke="#201e18" stroke-width="1.3" opacity="0.5"/><path d="M17 40h14" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M21 30h6l1 10h-8z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/></svg></div>
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="18" r="12" fill="none" stroke="#201e18" stroke-width="2.2"/><path d="M24 6v24M12 18h24" stroke="#201e18" stroke-width="1.3" opacity="0.5"/><path d="M17 40h14" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M21 30h6l1 10h-8z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/></svg></div>
             <div class="cat-head-content">
               <div class="cat-head">
-                <div><span class="cat-num">4</span><h4>Premis individuals</h4></div>
+                <div class="cat-title-line"><span class="cat-num">4</span><h4>Premis individuals</h4></div>
+                <div class="points-summary">fins a +30</div>
               </div>
             </div>
           </div>
-          <div class="breakdown">
-            <div><span><span class="emoji">⚽</span>Ballon d'Or</span><span class="pt">+10</span></div>
-            <div><span><span class="emoji">👟</span>Bota d'Or</span><span class="pt">+5</span></div>
-            <div><span><span class="emoji">🧒</span>Golden Boy</span><span class="pt">+5</span></div>
-            <div><span><span class="emoji">🧤</span>Trofeu Zamora</span><span class="pt">+10</span></div>
+          <div class="pts-visual">
+            <div class="pts-row pts-flat"><span class="pts-icon">⚽</span><span class="pts-text">Ballon d'Or</span><span class="pts-value">+10</span></div>
+            <div class="pts-row pts-flat"><span class="pts-icon">👟</span><span class="pts-text">Bota d'Or</span><span class="pts-value">+5</span></div>
+            <div class="pts-row pts-flat"><span class="pts-icon">🧒</span><span class="pts-text">Golden Boy</span><span class="pts-value">+5</span></div>
+            <div class="pts-row pts-flat"><span class="pts-icon">🧤</span><span class="pts-text">Trofeu Zamora</span><span class="pts-value">+10</span></div>
           </div>
           <div class="explain">
             <ul>
-              <li>Els resultats es determinaran prenent com a referència els guardons corresponents a l'edició de 2026.</li>
-              <li>El primer premi computable serà la Pilota d'Or, prevista per al 26 d'octubre de 2026, i la resta de premis que integren aquesta categoria.</li>
+              <li>Es prenen com a referència els guardons de l'edició 2026. El primer premi computable serà la Pilota d'Or (26 d'octubre de 2026).</li>
             </ul>
           </div>
           <div class="predict-zone">
@@ -433,25 +505,18 @@
 
         <div class="cat-card">
           <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M12 14l12 12 12-12" fill="none" stroke="#201e18" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 26l12 12 12-12" fill="none" stroke="#201e18" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/></svg></div>
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><path d="M12 14l12 12 12-12" fill="none" stroke="#201e18" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 26l12 12 12-12" fill="none" stroke="#201e18" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/></svg></div>
             <div class="cat-head-content">
               <div class="cat-head">
-                <div><span class="cat-num">5</span><h4>Descens de LaLiga</h4><span class="badge">×3 ordre exacte</span></div>
-                <div class="points-summary">+10 base</div>
+                <div class="cat-title-line"><span class="cat-num">5</span><h4>Descens de LaLiga</h4></div>
+                <div class="points-summary">fins a +40</div>
               </div>
             </div>
           </div>
-          <div class="breakdown">
-            <div><span>18è classificat exacte</span><span class="pt">+5</span></div>
-            <div><span>19è classificat exacte</span><span class="pt">+5</span></div>
-            <div><span>20è classificat exacte</span><span class="pt">+5</span></div>
-          </div>
-          <div class="explain">
-            <ul>
-              <li>El participant haurà de predir els tres equips que descendiran a Segona Divisió.</li>
-              <li>Per obtenir la puntuació base (+10), serà necessari encertar els tres equips, sense que l'ordre sigui rellevant.</li>
-              <li>Si a més s'encerta l'ordre exacte en què els equips finalitzen les tres darreres posicions, la puntuació es multiplicarà per tres (×3).</li>
-            </ul>
+          <div class="pts-visual">
+            <div class="pts-row pts-base"><span class="pts-icon">✓</span><span class="pts-text">Encertar els 3 equips (sense ordre)</span><span class="pts-value">+10</span></div>
+            <div class="pts-row pts-exact"><span class="pts-icon">🎯</span><span class="pts-text">Cada equip en la posició exacta (18è/19è/20è)</span><span class="pts-value">+5 cada un</span></div>
+            <div class="pts-row pts-multiplier"><span class="pts-icon">×3</span><span class="pts-text">Si encertes els 3 en l'ordre exacte, tot es multiplica</span><span class="pts-value">×3</span></div>
           </div>
           <div class="predict-zone">
             <div class="predict-label">La teva predicció</div>
@@ -465,24 +530,18 @@
 
         <div class="cat-card">
           <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M18 8h12v6c0 6-3.5 10-6 10s-6-4-6-10V8z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 10h-4v2c0 3.5 2 6 4.5 7" fill="none" stroke="#201e18" stroke-width="2" stroke-linecap="round"/><path d="M30 10h4v2c0 3.5-2 6-4.5 7" fill="none" stroke="#201e18" stroke-width="2" stroke-linecap="round"/><path d="M24 24v6" stroke="#201e18" stroke-width="2.2"/><path d="M18 40h12" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M21 30h6l1 10h-8z" fill="none" stroke="#201e18" stroke-width="2" stroke-linejoin="round"/><path d="M24 4l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#201e18"/></svg></div>
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><path d="M18 8h12v6c0 6-3.5 10-6 10s-6-4-6-10V8z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M18 10h-4v2c0 3.5 2 6 4.5 7" fill="none" stroke="#201e18" stroke-width="2" stroke-linecap="round"/><path d="M30 10h4v2c0 3.5-2 6-4.5 7" fill="none" stroke="#201e18" stroke-width="2" stroke-linecap="round"/><path d="M24 24v6" stroke="#201e18" stroke-width="2.2"/><path d="M18 40h12" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M21 30h6l1 10h-8z" fill="none" stroke="#201e18" stroke-width="2" stroke-linejoin="round"/><path d="M24 4l1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z" fill="#201e18"/></svg></div>
             <div class="cat-head-content">
               <div class="cat-head">
-                <div><span class="cat-num">6</span><h4>Finalistes de la Champions League</h4><span class="badge">Suma ×3 ordre exacte</span></div>
-                <div class="points-summary">+20 base</div>
+                <div class="cat-title-line"><span class="cat-num">6</span><h4>Finalistes de la Champions League</h4></div>
+                <div class="points-summary">fins a +90</div>
               </div>
             </div>
           </div>
-          <div class="breakdown">
-            <div><span>Campió exacte</span><span class="pt">+5</span></div>
-            <div><span>Subcampió exacte</span><span class="pt">+5</span></div>
-          </div>
-          <div class="explain">
-            <ul>
-              <li>El participant haurà d'encertar els dos finalistes de la final de la Champions League.</li>
-              <li>Si encerta els dos finalistes sense encertar quin és campió i quin subcampió, rebrà +20 punts.</li>
-              <li>Si a més encerta l'ordre exacte (quin dels dos és el campió i quin el subcampió), la puntuació total (base + punts per posició exacta) es multiplicarà per tres (×3). Per exemple: 20 + 5 + 5 = 30, i 30 × 3 = 90 punts.</li>
-            </ul>
+          <div class="pts-visual">
+            <div class="pts-row pts-base"><span class="pts-icon">✓</span><span class="pts-text">Encertar els 2 finalistes (sense saber qui guanya)</span><span class="pts-value">+20</span></div>
+            <div class="pts-row pts-exact"><span class="pts-icon">🎯</span><span class="pts-text">Encertar quin és campió i quin subcampió</span><span class="pts-value">+5 + 5</span></div>
+            <div class="pts-row pts-multiplier"><span class="pts-icon">×3</span><span class="pts-text">Si encertes l'ordre exacte, tota la suma es multiplica (20+5+5=30 → 90)</span><span class="pts-value">×3</span></div>
           </div>
           <div class="predict-zone">
             <div class="predict-label">La teva predicció</div>
@@ -495,52 +554,21 @@
 
         <div class="cat-card">
           <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="10" y="10" width="28" height="28" rx="4" fill="none" stroke="#201e18" stroke-width="2.2"/><circle cx="18" cy="18" r="2" fill="#201e18"/><circle cx="30" cy="18" r="2" fill="#201e18"/><circle cx="24" cy="24" r="2" fill="#201e18"/><circle cx="18" cy="30" r="2" fill="#201e18"/><circle cx="30" cy="30" r="2" fill="#201e18"/></svg></div>
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="#201e18" stroke-width="2.2"/><ellipse cx="24" cy="24" rx="7" ry="16" fill="none" stroke="#201e18" stroke-width="1.6"/><path d="M8 24h32M10 16h28M10 32h28" stroke="#201e18" stroke-width="1.6"/></svg></div>
             <div class="cat-head-content">
               <div class="cat-head">
-                <div><span class="cat-num">7</span><h4>Esdeveniment inesperat de l'any</h4></div>
-                <div class="points-summary">+20</div>
+                <div class="cat-title-line"><span class="cat-num">7</span><h4>Guanyadors de les 5 grans lligues</h4></div>
+                <div class="points-summary">fins a +250</div>
               </div>
             </div>
           </div>
-          <div class="explain">
-            <ul>
-              <li>La predicció haurà de referir-se a un únic esdeveniment.</li>
-              <li>No s'admetran prediccions que facin referència, directa o indirecta, al mateix fet que una altra predicció presentada pel mateix participant.</li>
-              <li>L'esdeveniment haurà de tenir una rellevància social, política, econòmica, esportiva o cultural suficient.</li>
-              <li>La validesa d'una predicció es decidirà per majoria simple entre els participants en cas de controvèrsia.</li>
-            </ul>
-          </div>
-          <div class="predict-zone">
-            <div class="predict-label">La teva predicció</div>
-            <div class="predict-row">
-              <div class="predict-group"><input type="text" name="esdeveniment" placeholder="Descriu l'esdeveniment" required></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="cat-card">
-          <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><circle cx="24" cy="24" r="16" fill="none" stroke="#201e18" stroke-width="2.2"/><ellipse cx="24" cy="24" rx="7" ry="16" fill="none" stroke="#201e18" stroke-width="1.6"/><path d="M8 24h32M10 16h28M10 32h28" stroke="#201e18" stroke-width="1.6"/></svg></div>
-            <div class="cat-head-content">
-              <div class="cat-head">
-                <div><span class="cat-num">8</span><h4>Guanyadors de les 5 grans lligues</h4><span class="badge">×5 les 5 encertades</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="breakdown">
-            <div><span><span class="emoji">🇪🇸</span>La Liga (ESP)</span><span class="pt">+10</span></div>
-            <div><span><span class="emoji">🇬🇧</span>Premier League (ANG)</span><span class="pt">+10</span></div>
-            <div><span><span class="emoji">🇮🇹</span>Serie A (ITA)</span><span class="pt">+10</span></div>
-            <div><span><span class="emoji">🇩🇪</span>Bundesliga (ALE)</span><span class="pt">+10</span></div>
-            <div><span><span class="emoji">🇫🇷</span>Ligue 1 (FRA)</span><span class="pt">+10</span></div>
-          </div>
-          <div class="explain">
-            <ul>
-              <li>Cal predir els campions de LaLiga, Premier League, Serie A, Bundesliga i Ligue 1.</li>
-              <li>Cada campió encertat puntua d'acord amb la taula establerta.</li>
-              <li>Si s'encerten els cinc campions, la puntuació total es multiplicarà per cinc (×5), com a reconeixement de la dificultat extraordinària d'assolir aquesta predicció.</li>
-            </ul>
+          <div class="pts-visual">
+            <div class="pts-row pts-flat"><span class="pts-icon">🇪🇸</span><span class="pts-text">La Liga (ESP)</span><span class="pts-value">+10</span></div>
+            <div class="pts-row pts-flat"><span class="pts-icon">🇬🇧</span><span class="pts-text">Premier League (ANG)</span><span class="pts-value">+10</span></div>
+            <div class="pts-row pts-flat"><span class="pts-icon">🇮🇹</span><span class="pts-text">Serie A (ITA)</span><span class="pts-value">+10</span></div>
+            <div class="pts-row pts-flat"><span class="pts-icon">🇩🇪</span><span class="pts-text">Bundesliga (ALE)</span><span class="pts-value">+10</span></div>
+            <div class="pts-row pts-flat"><span class="pts-icon">🇫🇷</span><span class="pts-text">Ligue 1 (FRA)</span><span class="pts-value">+10</span></div>
+            <div class="pts-row pts-multiplier"><span class="pts-icon">×5</span><span class="pts-text">Si encertes els 5 campions, tota la suma es multiplica</span><span class="pts-value">×5</span></div>
           </div>
           <div class="predict-zone">
             <div class="predict-label">La teva predicció</div>
@@ -554,24 +582,60 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="theme-divider">
+        <span class="theme-line"></span>
+        <span class="theme-label">🌐 Prediccions Globals</span>
+        <span class="theme-line"></span>
+      </div>
+
+      <div class="cat-grid">
+
         <div class="cat-card">
           <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="12" y="18" width="24" height="20" rx="2" fill="none" stroke="#201e18" stroke-width="2.2"/><path d="M18 18v-4a2 2 0 012-2h8a2 2 0 012 2v4" fill="none" stroke="#201e18" stroke-width="2.2"/><path d="M24 24v8M20 28h8" stroke="#201e18" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><rect x="10" y="10" width="28" height="28" rx="4" fill="none" stroke="#201e18" stroke-width="2.2"/><circle cx="18" cy="18" r="2" fill="#201e18"/><circle cx="30" cy="18" r="2" fill="#201e18"/><circle cx="24" cy="24" r="2" fill="#201e18"/><circle cx="18" cy="30" r="2" fill="#201e18"/><circle cx="30" cy="30" r="2" fill="#201e18"/></svg></div>
             <div class="cat-head-content">
               <div class="cat-head">
-                <div><span class="cat-num">9</span><h4>Eleccions generals espanyoles 2027</h4></div>
+                <div class="cat-title-line"><span class="cat-num">8</span><h4>Esdeveniment inesperat de l'any</h4></div>
+                <div class="points-summary">+100</div>
               </div>
             </div>
           </div>
-          <div class="breakdown">
-            <div><span>Partit guanyador de les eleccions</span><span class="pt">+10</span></div>
-            <div><span>Govern resultant</span><span class="pt">+20</span></div>
+          <div class="pts-visual">
+            <div class="pts-row pts-flat"><span class="pts-icon">✓</span><span class="pts-text">Encertar un esdeveniment sorprenent de l'any</span><span class="pts-value">+100</span></div>
           </div>
           <div class="explain">
             <ul>
-              <li>Aquesta categoria es resoldrà únicament quan hagin conclòs les eleccions generals previstes per a l'any 2027.</li>
-              <li>Es distingeixen dues prediccions independents: a) el partit guanyador de les eleccions (més gran nombre d'escons); b) el govern resultant (partit o coalició que aconsegueixi la investidura).</li>
-              <li>Si no s'arriba a constituir cap govern abans de la finalització del Predictor, només es computarà la puntuació del partit guanyador, quedant anul·lada la del govern resultant.</li>
+              <li>Ha de referir-se a un únic esdeveniment amb rellevància social, política, econòmica, esportiva o cultural suficient.</li>
+              <li>La validesa la decideixen els participants per majoria simple en cas de dubte.</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><input type="text" name="esdeveniment" placeholder="Descriu l'esdeveniment" required></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head-row">
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><rect x="12" y="18" width="24" height="20" rx="2" fill="none" stroke="#201e18" stroke-width="2.2"/><path d="M18 18v-4a2 2 0 012-2h8a2 2 0 012 2v4" fill="none" stroke="#201e18" stroke-width="2.2"/><path d="M24 24v8M20 28h8" stroke="#201e18" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <div class="cat-head-content">
+              <div class="cat-head">
+                <div class="cat-title-line"><span class="cat-num">9</span><h4>Eleccions generals espanyoles 2027</h4></div>
+                <div class="points-summary">fins a +30</div>
+              </div>
+            </div>
+          </div>
+          <div class="pts-visual">
+            <div class="pts-row pts-flat"><span class="pts-icon">🗳️</span><span class="pts-text">Partit guanyador de les eleccions</span><span class="pts-value">+10</span></div>
+            <div class="pts-row pts-flat"><span class="pts-icon">🏛️</span><span class="pts-text">Govern resultant (qui forma govern)</span><span class="pts-value">+20</span></div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>Si no s'arriba a constituir govern abans de finalitzar el joc, només compta la predicció del partit guanyador.</li>
             </ul>
           </div>
           <div class="predict-zone">
@@ -585,25 +649,55 @@
 
         <div class="cat-card">
           <div class="cat-head-row">
-            <div class="cat-icon"><svg viewBox="0 0 48 48" width="32" height="32"><path d="M14 40V24c0-6 4.5-10 10-10s10 4 10 10v16z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M24 8v6M21 11h6" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M10 40h28" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><rect x="6" y="40" width="36" height="4" rx="1" fill="none" stroke="#201e18" stroke-width="2"/><path d="M24 22l1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5z" fill="#201e18"/></svg></div>
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><path d="M14 40V24c0-6 4.5-10 10-10s10 4 10 10v16z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M24 8v6M21 11h6" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><path d="M10 40h28" stroke="#201e18" stroke-width="2.2" stroke-linecap="round"/><rect x="6" y="40" width="36" height="4" rx="1" fill="none" stroke="#201e18" stroke-width="2"/><path d="M24 22l1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5z" fill="#201e18"/></svg></div>
             <div class="cat-head-content">
               <div class="cat-head">
-                <div><span class="cat-num">10</span><h4>Celebrity Dead</h4></div>
-                <div class="points-summary">+50</div>
+                <div class="cat-title-line"><span class="cat-num">10</span><h4>Celebrity Dead</h4></div>
+                <div class="points-summary">+200</div>
               </div>
             </div>
           </div>
+          <div class="pts-visual">
+            <div class="pts-row pts-flat"><span class="pts-icon">✓</span><span class="pts-text">Encertar una celebritat que ens deixarà aquest any</span><span class="pts-value">+200</span></div>
+          </div>
           <div class="explain">
             <ul>
-              <li>No es podrà seleccionar cap persona sobre la qual existeixin proves públiques que pateixi una malaltia greu, terminal o potencialment mortal, ni qui hagi superat una malaltia així durant els dos anys anteriors a l'inici del Predictor.</li>
-              <li>S'entendrà per celebritat qualsevol persona àmpliament coneguda pel ciutadà mitjà de Catalunya i d'Espanya.</li>
-              <li>Quan la condició de celebritat o l'elegibilitat d'una persona sigui objecte de controvèrsia, la seva admissió es decidirà per votació per majoria simple entre els participants.</li>
+              <li>No es pot seleccionar cap persona amb malaltia greu o terminal coneguda públicament, ni que l'hagi superat en els últims 2 anys.</li>
             </ul>
           </div>
           <div class="predict-zone">
             <div class="predict-label">La teva predicció</div>
             <div class="predict-row">
               <div class="predict-group"><input type="text" name="celebrity" required></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cat-card">
+          <div class="cat-head-row">
+            <div class="cat-icon"><svg viewBox="0 0 48 48"><path d="M24 40c-1-1-14-8.5-14-18a8 8 0 0 1 14-5.3A8 8 0 0 1 38 22c0 9.5-13 17-14 18z" fill="none" stroke="#201e18" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 24l4 4 4-6 4 4 4-8 4 6" fill="none" stroke="#201e18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/></svg></div>
+            <div class="cat-head-content">
+              <div class="cat-head">
+                <div class="cat-title-line"><span class="cat-num">11</span><h4>Celebrity Love</h4></div>
+                <div class="points-summary">fins a +40</div>
+              </div>
+            </div>
+          </div>
+          <div class="pts-visual">
+            <div class="pts-row pts-flat"><span class="pts-icon">💔</span><span class="pts-text">Parella coneguda que trencarà l'any vinent</span><span class="pts-value">+20</span></div>
+            <div class="pts-row pts-flat"><span class="pts-icon">💘</span><span class="pts-text">Parella coneguda que sorgirà l'any vinent</span><span class="pts-value">+20</span></div>
+          </div>
+          <div class="explain">
+            <ul>
+              <li>Cal indicar una parella famosa que es preveu que trenqui i una altra que es preveu que sorgeixi durant la temporada.</li>
+              <li>Igual que a "Celebrity Dead", la validesa d'una predicció dubtosa es decidirà per majoria simple entre els participants.</li>
+            </ul>
+          </div>
+          <div class="predict-zone">
+            <div class="predict-label">La teva predicció</div>
+            <div class="predict-row">
+              <div class="predict-group"><label>Parella que trencarà</label><input type="text" name="celebrity_love_trencara" required></div>
+              <div class="predict-group"><label>Parella que sorgirà</label><input type="text" name="celebrity_love_sorgira" required></div>
             </div>
           </div>
         </div>
@@ -632,64 +726,66 @@
 <section id="normativa">
   <div class="wrap">
     <h2 class="section-title">Reglament</h2>
-    <h3 class="section-heading display">Normes generals</h3>
 
-    <div class="article">
-      <h4><span class="art-num">Article 1.</span> Objecte</h4>
-      <p>El present reglament estableix les normes aplicables a l'edició corresponent d'El Predictor, així com els criteris d'interpretació i puntuació de totes les categories que integren el joc.</p>
+    <div class="winner-box">
+      <div class="winner-title">Què passa si guanyes El Predictor?</div>
+      <p>Uneix-te a la nostra comunitat de WhatsApp per estar informat de la classificació mensual i de moltes més sorpreses!</p>
+      <a class="btn" href="https://chat.whatsapp.com/KI0CFC6Py2xJNeMjWXcCxT" target="_blank" rel="noopener">
+        Uneix-te a la comunitat
+      </a>
     </div>
 
-    <div class="article">
-      <h4><span class="art-num">Article 2.</span> Caràcter vinculant de les prediccions</h4>
-      <p>Les prediccions presentades per cada participant tindran caràcter definitiu i irrevocable. Un cop finalitzat el termini de presentació, no es podrà modificar, substituir, ampliar ni eliminar cap resposta.</p>
-    </div>
+    <details class="reglament-toggle">
+      <summary>Normes generals <span class="chevron">▾</span></summary>
+      <div class="reglament-body">
 
-    <div class="article">
-      <h4><span class="art-num">Article 3.</span> Data límit</h4>
-      <p>Totes les prediccions hauran de ser lliurades abans de les 23:59 hores del dia 23 d'agost de 2026. Qualsevol participació presentada amb posterioritat quedarà automàticament exclosa de l'edició corresponent.</p>
-    </div>
-
-    <div class="article">
-      <h4><span class="art-num">Article 4.</span> Fonts oficials</h4>
-      <p>La resolució de totes les categories es realitzarà exclusivament a partir dels resultats oficials publicats pels organismes competents. En cas de discrepància entre diferents fonts, prevaldrà sempre la informació publicada per l'organitzador oficial de la competició, premi o esdeveniment.</p>
-    </div>
-
-    <div class="article">
-      <h4><span class="art-num">Article 5.</span> Principi de bona fe</h4>
-      <p>Les prediccions s'hauran de formular d'acord amb l'esperit del joc. No s'admetran interpretacions artificioses, respostes manifestament ambigües o qualsevol actuació destinada a obtenir un avantatge contrari a la finalitat d'aquest reglament.</p>
-    </div>
-
-    <div class="article">
-      <h4><span class="art-num">Article 6.</span> Unicitat de les respostes</h4>
-      <p>Cada resposta només podrà correspondre a una única predicció dins d'una mateixa categoria, llevat que aquesta estableixi expressament el contrari. No s'admetran respostes duplicades quan la naturalesa de la categoria exigeixi opcions diferents.</p>
-    </div>
-
-    <div class="article">
-      <h4><span class="art-num">Article 7.</span> Categories anul·lades</h4>
-      <p>En cas que una categoria no arribi a celebrar-se, sigui suspesa definitivament o resulti impossible determinar-ne un resultat oficial, aquesta quedarà anul·lada i no generarà cap puntuació per a cap participant.</p>
-    </div>
-
-    <div class="article">
-      <h4><span class="art-num">Article 8.</span> Interpretació del reglament</h4>
-      <p>Qualsevol situació no prevista expressament en aquest reglament serà resolta pels participants mitjançant votació per majoria simple, sempre atenent els principis de bona fe, igualtat entre participants i preservació de l'esperit del joc.</p>
-    </div>
-
-    <div class="article">
-      <h4><span class="art-num">Article 9.</span> Acceptació del reglament</h4>
-      <p>La participació en El Predictor implica l'acceptació íntegra de totes les disposicions contingudes en aquest reglament.</p>
-    </div>
-
-    <div class="article">
-      <h4>Què passa si guanyes El Predictor?</h4>
-      <div class="winner-box">
-        Uneix-te a la nostra comunitat de WhatsApp per estar informat de la classificació mensual i de moltes més sorpreses!
-        <div>
-          <a class="btn" href="https://chat.whatsapp.com/KI0CFC6Py2xJNeMjWXcCxT" target="_blank" rel="noopener" style="background:var(--bg);color:var(--ink);border-color:var(--bg);">
-            Uneix-te a la comunitat
-          </a>
+        <div class="article">
+          <h4><span class="art-num">Article 1.</span> Objecte</h4>
+          <p>El present reglament estableix les normes aplicables a l'edició corresponent d'El Predictor, així com els criteris d'interpretació i puntuació de totes les categories que integren el joc.</p>
         </div>
+
+        <div class="article">
+          <h4><span class="art-num">Article 2.</span> Caràcter vinculant de les prediccions</h4>
+          <p>Les prediccions presentades per cada participant tindran caràcter definitiu i irrevocable. Un cop finalitzat el termini de presentació, no es podrà modificar, substituir, ampliar ni eliminar cap resposta.</p>
+        </div>
+
+        <div class="article">
+          <h4><span class="art-num">Article 3.</span> Data límit</h4>
+          <p>Totes les prediccions hauran de ser lliurades abans de les 23:59 hores del dia 23 d'agost de 2026. Qualsevol participació presentada amb posterioritat quedarà automàticament exclosa de l'edició corresponent.</p>
+        </div>
+
+        <div class="article">
+          <h4><span class="art-num">Article 4.</span> Fonts oficials</h4>
+          <p>La resolució de totes les categories es realitzarà exclusivament a partir dels resultats oficials publicats pels organismes competents. En cas de discrepància entre diferents fonts, prevaldrà sempre la informació publicada per l'organitzador oficial de la competició, premi o esdeveniment.</p>
+        </div>
+
+        <div class="article">
+          <h4><span class="art-num">Article 5.</span> Principi de bona fe</h4>
+          <p>Les prediccions s'hauran de formular d'acord amb l'esperit del joc. No s'admetran interpretacions artificioses, respostes manifestament ambigües o qualsevol actuació destinada a obtenir un avantatge contrari a la finalitat d'aquest reglament.</p>
+        </div>
+
+        <div class="article">
+          <h4><span class="art-num">Article 6.</span> Unicitat de les respostes</h4>
+          <p>Cada resposta només podrà correspondre a una única predicció dins d'una mateixa categoria, llevat que aquesta estableixi expressament el contrari. No s'admetran respostes duplicades quan la naturalesa de la categoria exigeixi opcions diferents.</p>
+        </div>
+
+        <div class="article">
+          <h4><span class="art-num">Article 7.</span> Categories anul·lades</h4>
+          <p>En cas que una categoria no arribi a celebrar-se, sigui suspesa definitivament o resulti impossible determinar-ne un resultat oficial, aquesta quedarà anul·lada i no generarà cap puntuació per a cap participant.</p>
+        </div>
+
+        <div class="article">
+          <h4><span class="art-num">Article 8.</span> Interpretació del reglament</h4>
+          <p>Qualsevol situació no prevista expressament en aquest reglament serà resolta pels participants mitjançant votació per majoria simple, sempre atenent els principis de bona fe, igualtat entre participants i preservació de l'esperit del joc.</p>
+        </div>
+
+        <div class="article">
+          <h4><span class="art-num">Article 9.</span> Acceptació del reglament</h4>
+          <p>La participació en El Predictor implica l'acceptació íntegra de totes les disposicions contingudes en aquest reglament.</p>
+        </div>
+
       </div>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -718,7 +814,7 @@ document.querySelectorAll('.navlink').forEach(function(btn){
   });
 });
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzzMYe8mt-sEtH6rA9ccdCP3piglw0y19NDaecLXQTR_9F-PovJhNJKY3zdP3_H2i5V/exec";
+const SCRIPT_URL = "ENGANXA_AQUI_LA_URL_DEL_TEU_APPS_SCRIPT";
 
 const form = document.getElementById('predictor-form');
 const submitBtn = document.getElementById('submit-btn');
