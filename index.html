@@ -105,6 +105,43 @@
   }
   p.section-intro{color:var(--muted);margin-bottom:30px;font-size:15px;max-width:640px;font-weight:500;}
 
+  /* Photo wall gallery — sides of the intro section */
+  .intro-with-gallery{
+    display:grid;
+    grid-template-columns:180px minmax(0,1fr) 180px;
+    gap:28px;
+    align-items:start;
+  }
+  .photo-wall{
+    display:flex;flex-direction:column;gap:10px;
+    position:sticky;top:90px;
+  }
+  .wall-photo{
+    border-radius:6px;overflow:hidden;border:2px solid var(--ink);
+    filter:grayscale(85%) contrast(1.02);
+    transition:filter .35s ease, transform .35s ease;
+    transform:rotate(0deg);
+  }
+  .photo-wall.left .wall-photo:nth-child(odd){transform:rotate(-1.2deg);}
+  .photo-wall.left .wall-photo:nth-child(even){transform:rotate(1deg);}
+  .photo-wall.right .wall-photo:nth-child(odd){transform:rotate(1.2deg);}
+  .photo-wall.right .wall-photo:nth-child(even){transform:rotate(-1deg);}
+  .wall-photo:hover{
+    filter:grayscale(0%) contrast(1);
+    transform:rotate(0deg) scale(1.04);
+    z-index:2;
+  }
+  .wall-photo img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .intro-center{min-width:0;}
+
+  @media (max-width:1100px){
+    .intro-with-gallery{grid-template-columns:1fr;}
+    .photo-wall{display:none;}
+  }
+
+  /* Theme group headers within categories */
   .theme-divider{
     display:flex;align-items:center;gap:14px;
     margin:40px 0 20px;
@@ -147,6 +184,7 @@
     background:var(--cream-soft);padding:4px 9px;border-radius:4px;flex-shrink:0;
   }
 
+  /* Visual points system */
   .pts-visual{border-top:1px dashed var(--line);padding-top:12px;margin-top:8px;display:flex;flex-direction:column;gap:6px;}
   .pts-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;font-size:13.5px;}
   .pts-row .pts-icon{
@@ -198,6 +236,7 @@
   .predict-group input:focus{outline:none;background:#fff;}
   .predict-group input::placeholder{color:#a19d8c;}
 
+  /* Reglament as collapsible details */
   details.reglament-toggle{
     border:2px solid var(--ink);border-radius:8px;overflow:hidden;
     margin-bottom:20px;
@@ -356,14 +395,45 @@
 </section>
 
 <section id="com-jugar">
-  <div class="wrap">
-    <h2 class="section-title">Introducció</h2>
-    <h3 class="section-heading display">Com funciona el joc</h3>
-    <div class="intro-block">
-      <p>Vivim en una època en què, sovint, els grans esdeveniments esportius, polítics, socials i culturals es consumeixen des del paper d'espectadors. El Predictor pretén canviar, encara que sigui per una estona, aquest rol passiu, convidant els participants a prendre partit abans que els fets es produeixin.</p>
-      <p>Cada participant presenta les seves prediccions abans del <strong>23 d'agost de 2026</strong>, data que marca l'inici oficial del joc, coincidint amb el començament de la temporada 2026-2027 de LaLiga. Durant l'any es publicarà una classificació provisional amb periodicitat aproximadament mensual.</p>
-      <p>L'objectiu és obtenir la màxima puntuació possible mitjançant l'encert de les diferents categories proposades. Serà declarat vencedor el participant que acumuli la puntuació més elevada un cop finalitzat El Predictor.</p>
+  <div class="wrap intro-with-gallery">
+
+    <div class="photo-wall left">
+        <div class="wall-photo" style="height:190px;"><img src="img/galeria-01.jpg" alt="Foto 1" loading="lazy"></div>
+        <div class="wall-photo" style="height:240px;"><img src="img/galeria-03.jpg" alt="Foto 3" loading="lazy"></div>
+        <div class="wall-photo" style="height:210px;"><img src="img/galeria-05.jpg" alt="Foto 5" loading="lazy"></div>
+        <div class="wall-photo" style="height:260px;"><img src="img/galeria-07.jpg" alt="Foto 7" loading="lazy"></div>
+        <div class="wall-photo" style="height:220px;"><img src="img/galeria-09.jpg" alt="Foto 9" loading="lazy"></div>
+        <div class="wall-photo" style="height:190px;"><img src="img/galeria-11.jpg" alt="Foto 11" loading="lazy"></div>
+        <div class="wall-photo" style="height:240px;"><img src="img/galeria-13.jpg" alt="Foto 13" loading="lazy"></div>
+        <div class="wall-photo" style="height:210px;"><img src="img/galeria-15.jpg" alt="Foto 15" loading="lazy"></div>
+        <div class="wall-photo" style="height:260px;"><img src="img/galeria-17.jpg" alt="Foto 17" loading="lazy"></div>
+        <div class="wall-photo" style="height:220px;"><img src="img/galeria-19.jpg" alt="Foto 19" loading="lazy"></div>
+        <div class="wall-photo" style="height:190px;"><img src="img/galeria-21.jpg" alt="Foto 21" loading="lazy"></div>
     </div>
+
+    <div class="intro-center">
+      <h2 class="section-title">Introducció</h2>
+      <h3 class="section-heading display">Com funciona el joc</h3>
+      <div class="intro-block">
+        <p>Vivim en una època en què, sovint, els grans esdeveniments esportius, polítics, socials i culturals es consumeixen des del paper d'espectadors. El Predictor pretén canviar, encara que sigui per una estona, aquest rol passiu, convidant els participants a prendre partit abans que els fets es produeixin.</p>
+        <p>Cada participant presenta les seves prediccions abans del <strong>23 d'agost de 2026</strong>, data que marca l'inici oficial del joc, coincidint amb el començament de la temporada 2026-2027 de LaLiga. Durant l'any es publicarà una classificació provisional amb periodicitat aproximadament mensual.</p>
+        <p>L'objectiu és obtenir la màxima puntuació possible mitjançant l'encert de les diferents categories proposades. Serà declarat vencedor el participant que acumuli la puntuació més elevada un cop finalitzat El Predictor.</p>
+      </div>
+    </div>
+
+    <div class="photo-wall right">
+        <div class="wall-photo" style="height:190px;"><img src="img/galeria/galeria-02.jpg" alt="Foto 2" loading="lazy"></div>
+        <div class="wall-photo" style="height:240px;"><img src="img/galeria/galeria-04.jpg" alt="Foto 4" loading="lazy"></div>
+        <div class="wall-photo" style="height:210px;"><img src="img/galeria/galeria-06.jpg" alt="Foto 6" loading="lazy"></div>
+        <div class="wall-photo" style="height:260px;"><img src="img/galeria/galeria-08.jpg" alt="Foto 8" loading="lazy"></div>
+        <div class="wall-photo" style="height:220px;"><img src="img/galeria/galeria-10.jpg" alt="Foto 10" loading="lazy"></div>
+        <div class="wall-photo" style="height:190px;"><img src="img/galeria/galeria-12.jpg" alt="Foto 12" loading="lazy"></div>
+        <div class="wall-photo" style="height:240px;"><img src="img/galeria/galeria-14.jpg" alt="Foto 14" loading="lazy"></div>
+        <div class="wall-photo" style="height:210px;"><img src="img/galeria/galeria-16.jpg" alt="Foto 16" loading="lazy"></div>
+        <div class="wall-photo" style="height:260px;"><img src="img/galeria/galeria-18.jpg" alt="Foto 18" loading="lazy"></div>
+        <div class="wall-photo" style="height:220px;"><img src="img/galeria/galeria-20.jpg" alt="Foto 20" loading="lazy"></div>
+    </div>
+
   </div>
 </section>
 
