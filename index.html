@@ -19,6 +19,52 @@ header.site .wrap{display:flex;align-items:center;justify-content:space-between;
 nav.site ul{display:flex;gap:18px;list-style:none;flex-wrap:wrap}nav.site button.navlink{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);opacity:.7;background:none;border:none;cursor:pointer;font-family:inherit;padding:0;font-weight:700;white-space:nowrap}nav.site button.navlink:hover{opacity:1}
 section{padding:64px 0;border-bottom:1px solid var(--line)}section:last-of-type{border-bottom:none}
 .hero{padding-top:64px;padding-bottom:64px;text-align:center;position:relative;overflow:hidden}.hero .crosshair-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:520px;height:520px;opacity:.05;pointer-events:none}.hero-inner{position:relative;z-index:1}.hero .tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;border:2px solid var(--ink);border-radius:999px;padding:6px 14px;margin-bottom:24px}.hero h1.display{font-size:56px;line-height:.95;margin-bottom:16px;word-break:break-word}.hero p.lede{font-size:17px;color:var(--muted);max-width:520px;margin:0 auto 26px;font-weight:500}.hero .meta{font-size:13.5px;color:var(--muted);margin-bottom:30px;font-weight:600}.hero .meta strong{color:var(--ink)}
+  .countdown-wrap{
+  margin:0 auto 30px;
+}
+
+.countdown-label{
+  display:block;
+  margin-bottom:8px;
+  color:var(--muted);
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+
+.countdown-unit{
+  min-width:66px;
+  padding:8px 7px 7px;
+  border:2px solid var(--ink);
+  border-radius:5px;
+  background:rgba(250,248,239,.76);
+  line-height:1;
+}
+
+.countdown-unit strong{
+  display:block;
+  font-size:22px;
+  font-weight:900;
+  font-style:italic;
+  letter-spacing:-.04em;
+}
+
+.countdown-unit span{
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
 .btn{display:inline-block;background:var(--ink);color:var(--bg);padding:15px 30px;border-radius:4px;font-weight:800;font-size:13.5px;letter-spacing:.05em;text-transform:uppercase;font-style:italic;transition:transform .15s ease;border:2px solid var(--ink);cursor:pointer;font-family:inherit}.btn:hover{transform:translateY(-2px)}.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 h2.section-title{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-weight:800}h3.section-heading{font-size:28px;margin-bottom:24px}p.section-intro{color:var(--muted);margin-bottom:30px;font-size:15px;max-width:640px;font-weight:500}
 
@@ -32,7 +78,16 @@ h2.section-title{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
 .pts-visual{border-top:1px dashed var(--line);padding-top:12px;margin-top:8px;display:flex;flex-direction:column;gap:6px}.pts-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;font-size:13.5px}.pts-row .pts-icon{flex-shrink:0;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}.pts-row .pts-text{flex:1;color:#3a382f;min-width:0}.pts-row .pts-value{font-weight:800;color:var(--ink);flex-shrink:0;font-size:13px}.pts-base{background:var(--cream-soft)}.pts-base .pts-icon{background:var(--ink);color:var(--bg)}.pts-exact{background:#fff;border:1px dashed var(--line)}.pts-exact .pts-icon{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}.pts-multiplier{background:var(--ink)}.pts-multiplier .pts-icon{background:var(--bg);color:var(--ink);font-size:11px}.pts-multiplier .pts-text{color:var(--bg);font-weight:700}.pts-multiplier .pts-value{color:var(--bg)}.pts-flat{background:var(--cream-soft)}.pts-flat .pts-icon{background:var(--ink);color:var(--bg)}
 .cat-card .explain{border-top:1px dashed var(--line);margin-top:12px;padding-top:12px}.cat-card .explain ul{padding-left:18px;color:#3a382f;font-size:13.5px}.cat-card .explain li{margin-bottom:5px}.predict-zone{border-top:2px solid var(--ink);margin-top:14px;padding-top:14px}.predict-zone .predict-label{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:9px}.predict-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.predict-group label{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;color:var(--muted)}.predict-group input{width:100%;padding:11px 12px;border-radius:6px;border:2px solid var(--ink);background:var(--bg);color:var(--ink);font-size:14px;font-family:inherit}.predict-group input:focus{outline:none;background:#fff}.predict-group input::placeholder{color:#a19d8c}
 details.reglament-toggle{border:2px solid var(--ink);border-radius:8px;overflow:hidden;margin-bottom:20px}details.reglament-toggle summary{padding:18px 22px;cursor:pointer;font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:-.01em;font-size:17px;list-style:none;display:flex;align-items:center;justify-content:space-between;background:var(--cream-soft)}details.reglament-toggle summary::-webkit-details-marker{display:none}details.reglament-toggle summary .chevron{font-size:14px;transition:transform .2s ease;font-style:normal}details.reglament-toggle[open] summary .chevron{transform:rotate(180deg)}details.reglament-toggle .reglament-body{padding:24px 22px}.article{margin-bottom:22px}.article:last-child{margin-bottom:0}.article h4{font-size:13.5px;font-weight:800;margin-bottom:6px;text-transform:uppercase;letter-spacing:.02em}.article h4 .art-num{color:var(--muted)}.article p{color:#3a382f;font-size:14.5px}.intro-block p{margin-bottom:14px;color:#3a382f;font-size:14.5px}
-.winner-box{background:var(--ink);border:2px solid var(--ink);border-radius:8px;padding:24px 22px;color:var(--bg);font-size:15px;font-weight:700;text-align:center;margin-bottom:20px}.winner-box .winner-title{font-size:17px;font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:10px}.winner-box p{color:#d8d5c8;font-weight:600;margin-bottom:16px;font-size:14.5px}.winner-box .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.winner-box{background:var(--ink);border:2px solid var(--ink);border-radius:8px;padding:24px 22px;color:var(--bg);font-size:15px;font-weight:700;text-align:center;margin-bottom:20px}.winner-box .winner-title{font-size:17px;font-weight:800;font-style:italic;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:10px}.winner-box p{color:#d8d5c8;font-weight:600;margin-bottom:16px;font-size:14.5px}. .intro-block .intro-manifest{
+  margin:24px 0;
+  color:var(--ink);
+  font-size:22px;
+  font-weight:900;
+  font-style:italic;
+  letter-spacing:-.03em;
+  line-height:1.15;
+  text-transform:uppercase;
+}winner-box .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
 .personal-card{background:var(--ink);color:var(--bg);border-radius:8px;padding:22px 20px;margin-bottom:16px}.personal-card .predict-label{color:#a9a691}.personal-card .predict-group label{color:#d8d5c8}.personal-card .predict-group input{background:#2a2820;border:2px solid #454234;color:var(--bg)}.personal-card .predict-group input::placeholder{color:#7a7768}.personal-card .predict-group input:focus{border-color:var(--bg);background:#2a2820}.submit-zone{background:var(--ink);color:var(--bg);border-radius:8px;padding:28px 22px;text-align:center;margin-top:16px}.submit-zone .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);width:100%;max-width:320px}.submit-zone p.form-note{font-size:12px;color:#9a9787;margin-top:14px;font-weight:500}
 #form-success{display:none;text-align:center;padding:50px 0}#form-success .display{font-size:28px;margin-bottom:16px}#form-success p{color:var(--muted);font-size:14.5px}.genie-link{display:inline-block;text-decoration:none;cursor:pointer;transition:transform .2s ease}.genie-link:hover{transform:scale(1.04)}#genie-img{max-width:240px;width:100%;height:auto;margin:0 auto 14px;display:block}.genie-cta{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);background:var(--cream-soft);display:inline-block;padding:8px 16px;border-radius:999px;margin-bottom:22px;border:2px solid var(--ink)}
 footer{padding:32px 0;text-align:center;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
@@ -132,16 +187,30 @@ footer{padding:32px 0;text-align:center;color:var(--muted);font-size:11px;font-w
   }
 }
 @media(max-width:640px){.wrap{padding:0 18px}.logo-text{font-size:14px}header.site .wrap{flex-wrap:wrap}nav.site ul{gap:10px}nav.site button.navlink{font-size:9.5px}.hero{padding-top:44px;padding-bottom:44px}.hero h1.display{font-size:36px}.hero .tag{font-size:10px;padding:5px 12px}.hero p.lede{font-size:15px}section{padding:44px 0}h3.section-heading{font-size:23px}.predict-row{grid-template-columns:1fr 1fr}.cat-icon{width:34px;height:34px}.cat-icon svg{width:22px;height:22px}.cat-card{padding:16px}.cat-card h4{font-size:14.5px}.theme-divider .theme-label{font-size:10.5px;padding:6px 12px}details.reglament-toggle summary{font-size:15px;padding:16px 18px}details.reglament-toggle .reglament-body{padding:20px 18px}.pts-row{font-size:12.5px;padding:7px 9px}.btn{padding:14px 24px;font-size:12.5px}.site-main-content .wrap{padding-left:18px;padding-right:18px}}
+@media(max-width:400px){
+  .countdown{
+    gap:5px;
+  }
+
+  .countdown-unit{
+    min-width:59px;
+    padding:7px 4px 6px;
+  }
+
+  .countdown-unit strong{
+    font-size:19px;
+  }
+}
 @media(max-width:400px){.predict-row{grid-template-columns:1fr}.hero h1.display{font-size:30px}}
 </style>
 </head>
 <body>
 <header class="site"><div class="wrap"><div class="logo"><svg width="28" height="28" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="7"/><circle cx="50" cy="50" r="27" fill="none" stroke="#201e18" stroke-width="7"/><circle cx="50" cy="50" r="14" fill="#201e18"/><line x1="50" y1="0" x2="50" y2="22" stroke="#201e18" stroke-width="7"/><line x1="50" y1="78" x2="50" y2="100" stroke="#201e18" stroke-width="7"/><line x1="0" y1="50" x2="22" y2="50" stroke="#201e18" stroke-width="7"/><line x1="78" y1="50" x2="100" y2="50" stroke="#201e18" stroke-width="7"/></svg><span class="logo-text">El Predictor</span></div><nav class="site"><ul><li><button class="navlink" data-target="com-jugar">Com jugar</button></li><li><button class="navlink" data-target="categories">Prediccions</button></li><li><button class="navlink" data-target="normativa">Normativa</button></li></ul></nav></div></header>
-<section class="hero"><svg class="crosshair-bg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="2"/><circle cx="50" cy="50" r="27" fill="none" stroke="#201e18" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#201e18" stroke-width="2"/><line x1="50" y1="0" x2="50" y2="100" stroke="#201e18" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#201e18" stroke-width="2"/></svg><div class="wrap hero-inner"><span class="tag"><svg width="13" height="13" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="10"/><circle cx="50" cy="50" r="14" fill="#201e18"/></svg>Temporada 2026 – 2027</span><h1 class="display">El Predictor</h1><p class="lede">Un joc anual de prediccions esportives i geopolítiques. Endevina el que passarà aquesta temporada i demostra qui té la millor intuïció... o la millor sort.</p><div class="meta">Data límit de participació: <strong>23 d'agost de 2026, 23:59h</strong></div><a class="btn" href="#categories">Envia les teves prediccions</a></div></section>
+<section class="hero"><svg class="crosshair-bg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="2"/><circle cx="50" cy="50" r="27" fill="none" stroke="#201e18" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#201e18" stroke-width="2"/><line x1="50" y1="0" x2="50" y2="100" stroke="#201e18" stroke-width="2"/><line x1="0" y1="50" x2="100" y2="50" stroke="#201e18" stroke-width="2"/></svg><div class="wrap hero-inner"><span class="tag"><svg width="13" height="13" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#201e18" stroke-width="10"/><circle cx="50" cy="50" r="14" fill="#201e18"/></svg>Temporada 2026 – 2027</span><h1 class="display">El Predictor</h1><p class="lede">Un joc anual de prediccions esportives i geopolítiques. Endevina el que passarà aquesta temporada i demostra qui té la millor intuïció... o la millor sort.</p><a class="btn" href="#categories">Envia les teves prediccions</a></div></section>
 
 <main class="site-content-with-gallery">
 <aside class="photo-wall left">
-<span class="mobile-gallery-label">← Desliza les fotos →</span>
+<span class="mobile-gallery-label">← Llisca les fotos →</span>
 <div class="wall-photo" style="height:190px"><img src="img/galeria-01.jpg" alt="Neymar Jr." loading="lazy"></div>
 <div class="wall-photo" style="height:240px"><img src="img/galeria-03.jpg" alt="Umtiti" loading="lazy"></div>
 <div class="wall-photo" style="height:210px"><img src="img/galeria-05.jpg" alt="Mario Balotelli" loading="lazy"></div>
@@ -167,7 +236,19 @@ footer{padding:32px 0;text-align:center;color:var(--muted);font-size:11px;font-w
 </aside>
 
 <div class="site-main-content">
-<section id="com-jugar"><div class="wrap"><h2 class="section-title">Introducció</h2><h3 class="section-heading display">Com funciona el joc</h3><div class="intro-block"><p>Vivim en una època en què, sovint, els grans esdeveniments esportius, polítics, socials i culturals es consumeixen des del paper d'espectadors. El Predictor pretén canviar, encara que sigui per una estona, aquest rol passiu, convidant els participants a prendre partit abans que els fets es produeixin.</p><p>Cada participant presenta les seves prediccions abans del <strong>23 d'agost de 2026</strong>, data que marca l'inici oficial del joc, coincidint amb el començament de la temporada 2026-2027 de LaLiga. Durant l'any es publicarà una classificació provisional amb periodicitat aproximadament mensual.</p><p>L'objectiu és obtenir la màxima puntuació possible mitjançant l'encert de les diferents categories proposades. Serà declarat vencedor el participant que acumuli la puntuació més elevada un cop finalitzat El Predictor.</p></div></div></section>
+<section id="com-jugar"><div class="wrap"><h2 class="section-title">Introducció</h2><h3 class="section-heading display">Com funciona el joc</h3><div class="intro-block">
+  <p>I si aquest any és, per fi, l'any de la sisena? O de la setzena? O potser la primera dels colchoneros?</p>
+
+  <p>Ara que estem en aquell moment de la temporada en què tot sembla tan lluny, però alhora, per moments, tan clar i possible... Fins i tot hi ha qui veu possible l'impossible (un euro espanyol, per exemple).</p>
+
+  <p>Amb El Predictor arriba el moment de demostrar que la fidelitat al teu equip i les ganes de tenir la raó són perfectament compatibles.</p>
+
+  <p class="intro-manifest">Prediu. Arrisca. Encerta. Guanya.</p>
+
+  <p>Abans de l'<strong>1 de setembre de 2026</strong>, hauràs de presentar les teves prediccions. A partir d'aquí, només queda esperar... i veure si realment tens la bola de vidre. Durant la temporada, una classificació mensual decidirà qui té millor intuïció, qui coneix millor el futbol i, sobretot, qui té més sort. Endevina què passarà aquesta temporada i demostra qui és el millor predictor.</p>
+
+  <p>Comparteix El Predictor amb els teus amics i que comenci el joc.</p>
+</div></div></section>
 
 <section id="categories"><div class="wrap"><h2 class="section-title">Puntuació, guia i prediccions</h2><h3 class="section-heading display">Les 11 categories</h3><p class="section-intro">Llegeix la mecànica de cada categoria i omple directament la teva predicció just a sota. Al final trobaràs el botó per enviar-ho tot.</p>
 <form id="predictor-form">
